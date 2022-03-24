@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+  <head>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyDTmtoTVmMeAWiYH9q4OnCLlijNnxmUkjM",
+        authDomain: "chrome-earth-day.firebaseapp.com",
+        projectId: "chrome-earth-day",
+        storageBucket: "chrome-earth-day.appspot.com",
+        messagingSenderId: "63905900174",
+        appId: "1:63905900174:web:ca7b5dd9108b401db58bdf",
+        measurementId: "G-N5ZKEG15P6"
+      };
+    
+      // Initialize Firebase
+      const appF = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(appF);
+    </script>
+
+    <script src="https://pixijs.download/release/pixi.min.js"></script>
+    <style>
+        body {    
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: hidden;
+        }
+
+        .button {
+      
+          background-color: #4CAF50; /* Green */
+          border: none;
+          color: white;
+          padding: 16px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          transition-duration: 0.4s;
+          cursor: pointer;
+        }
+
+        .button1 {
+          background-color: white; 
+          color: black; 
+          border: 2px solid #4CAF50;
+        }
+
+        .button:hover {
+          background-color: #4CAF50; /* Green */
+          color: white;
+        }
+    </style>
+  </head>
+  <body>
+    <div style = 'position:absolute; z-index: 10;'>
+        <button class="button button1" onclick="slide()">SLIDE</button>
+    </div>
+    
+
+    <script>
+      //create app and resize to fit device
+      let app = new PIXI.Application({ resizeTo: window });
+      document.body.appendChild(app.view);
+
+
+      //empty arrays and vars
+      let slides = []
+      let sprites = []
+      let allSprites = [];
+      let numSlides = 18;
+      let currSlide = 1;
+
+      const style = new PIXI.TextStyle({
+          fontFamily: 'Arial',
+          fontSize: 36,
+          fontStyle: 'italic',
+          fontWeight: 'bold',
+          fill: ['#ffffff', '#00ff99'], // gradient
+          stroke: '#4a1850',
+          strokeThickness: 5,
+          dropShadow: true,
+          dropShadowColor: '#000000',
+          dropShadowBlur: 4,
+          dropShadowAngle: Math.PI / 6,
+          dropShadowDistance: 6,
+          wordWrap: true,
+          wordWrapWidth: 440,
+          lineJoin: 'round',
+      });
+
+      const basicText = new PIXI.Text('Slide: '+ currSlide, style);
+      basicText.x = 10;
+      basicText.y = 75;
+
+      app.stage.addChild(basicText);
+      basicText.zIndex= 10;
+
+      //create origin points based on no. of slides
+      for(var x = 0; x<numSlides; x++){
+        const container = new PIXI.Container();
+        container.x = window.innerWidth/2 + (window.innerWidth * x);
+        container.y = window.innerHeight/2;
+        slides.push(container);
+        app.stage.addChild(container);
+      }
+
+      function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+    //populate slides with sprites
+
+    slides.forEach(function (origin, i) {
+        //adds a random number of images for now
+        //will iterate through some layout
+        for(var x = 0; x < getRandomArbitrary(0,4); x++){
+          var sprite = PIXI.Sprite.from('images/sample.png');
+          slides[i].addChild(sprite);
+
+          sprite.anchor.set(0.5);
+
+          sprite.x = getRandomArbitrary(-300,300);
+          sprite.y = getRandomArbitrary(-400,400);
+        }
+    });
+
+    let sliding = false;
+    let distanceTravelled = 0;
+
+    function slide(){
+        console.log('Leaving in 1 second');
+        distanceTravelled = slides[0].x - window.innerWidth;
+        setTimeout(function () {
+            sliding = true;
+        }, 1000);
+    }
+
+    let active = true;
+    let speed  = 30;
+
+    function arrive(){
+        if(active){
+            active = false
+            sliding=false;
+            currSlide++;
+            console.log('ARRIVED at slide'+currSlide);
+            basicText.text ='Slide: '+ currSlide;
+        }
+        setTimeout(function () {
+            active = true;
+        }, 1000);
+    }
+
+    app.ticker.add((delta) => {
+    if(sliding)(
+      slides.forEach(function (slide, i) {
+        slide.x -= speed * delta;
+        if(slides[0].x <= distanceTravelled){
+            
+            arrive();
+        }
+       })
+    )
+    });
+
+    </script>
+  </body>
+</html>
