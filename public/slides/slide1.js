@@ -1,8 +1,10 @@
 index = 1;
 
+let ring1;
+
 slideFuncs[index] = function (container){
 
-  const ring1 = new Ring(container, width/2, height/2, 300, 12, 0.005);
+    ring1 = new Ring(container, width/2, height/2, 300, 12, 0.005);
 
     //add sprites
     let bird = PIXI.Sprite.from('images/bird2.png');
@@ -17,4 +19,15 @@ slideFuncs[index] = function (container){
       bush.scale.set(0.5);
       bush.x = window.innerWidth/2;
       bush.y = window.innerHeight;
+}
+
+arriveTriggers[index] = function (){
+    console.log(ring1);
+}
+
+leaveTriggers[index] = function (){
+    //console.log(ring1);
+    console.log('leaving slide 1: ' + index);
+    //once complete
+    arrive(index+1);
 }

@@ -9,7 +9,7 @@ document.body.appendChild(app.view);
 //empty arrays and vars
 let slides = []
 //let numSlides = 3;
-let currSlide = 1;
+let currSlide = 0;
 
 let width = window.innerWidth;
 let height = window.innerHeight;
@@ -42,65 +42,42 @@ basicText.zIndex= 10;
 
 
 //call function for each slide
-for(var i = 0; i<numSlides; i++){
 
-    const container = new PIXI.Container();
-    container.x = window.innerWidth/2;
-    container.y = window.innerHeight/2;
-    slides.push(container);
-    app.stage.addChild(container);
+function buildContainers(){
+    for(var i = 0; i<numSlides; i++){
 
-    slideFuncs[i](container);
+        const container = new PIXI.Container();
+        container.x = window.innerWidth/2;
+        container.y = window.innerHeight/2;
+        slides.push(container);
+        app.stage.addChild(container);
+
+        slideFuncs[i](container);
+    }
+    setTimeout(function () {
+        arriveTriggers[0]();
+    }, 500);
 }
+
+buildContainers();
 
 function getRandomArbitrary(min, max) {
 return Math.random() * (max - min) + min;
 }
 
-// slides.forEach(function (slide, i) {
-//     console.log(slide.children);
-// });
-
-let sliding = false;
-let distanceTravelled = 0;
-
 function slide(){
-  
-  console.log('Leaving in 1 second');
-  distanceTravelled = slides[0].x - window.innerWidth;
-  //setTimeout(function () {
-      sliding = true;
-      progressInc();
-  //}, 1000);
+  leaveTriggers[currSlide]();
 }
 
-let active = true;
-let speed  = 30;
-
-function arrive(){
-  if(active){
-      active = false
-      sliding=false;
-      currSlide++;
-      console.log('ARRIVED at slide'+currSlide);
-      basicText.text ='Slide: '+ currSlide;
-  }
-  setTimeout(function () {
-      active = true;
-  }, 1000);
+function arrive(i){
+    currSlide++;
+    console.log('ARRIVED at slide'+currSlide);
+    basicText.text ='Slide: '+ currSlide;
+    arriveTriggers[currSlide]();
 }
 
-app.ticker.add((delta) => {
-if(sliding)(
-slides.forEach(function (slide, i) {
-  slide.x -= speed * delta;
-  if(slides[0].x <= distanceTravelled){
-      
-      arrive();
-  }
- })
-)
-});
+//triggers first slide
+
 
 // swipe logic
 

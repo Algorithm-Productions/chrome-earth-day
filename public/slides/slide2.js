@@ -67,3 +67,14 @@ slideFuncs[index] = function (container){
     //   windmill2.update(delta);
 	// 	});
 }
+
+arriveTriggers[index] = function (){
+    console.log();
+}
+
+leaveTriggers[index] = function (){
+    console.log();
+
+    //once complete
+    arrive(index+1);
+}
