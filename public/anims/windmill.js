@@ -6,7 +6,7 @@ function Windmill(x, y, speed, colour) {
 
       this.container.x = x;
       this.container.y = y;
-      this.container.scale.set(0.8);
+      this.container.scale.set(1);
 
       this.pole = PIXI.Sprite.from('images/wmPole.png');
       this.container.addChild(this.pole);
@@ -24,7 +24,7 @@ function Windmill(x, y, speed, colour) {
         this.fan.rotation -= this.speed * delta;
       };
 
-      this.animate = function() {
+      this.animateIn = function() {
         let anim = anime.timeline({
           easing: 'easeInOutQuart',
           duration: 1000

@@ -2,6 +2,15 @@ index = 0;
 
 slideFuncs[index] = function (container){
 
+	app.loader
+    .add('images/spritesheet/birdy-0.json')
+    .load(onAssetsLoaded);
+
+    function onAssetsLoaded() {
+        const hoverbird = new HoverBird(container);
+        // console.log(hoverbird);
+    }
+
     //add sprites
     let sprite = PIXI.Sprite.from('images/chrome.png');
     container.addChild(sprite);

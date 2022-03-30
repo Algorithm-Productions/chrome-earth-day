@@ -2,6 +2,8 @@ index = 1;
 
 slideFuncs[index] = function (container){
 
+  const ring1 = new Ring(container, width/2, height/2, 300, 12, 0.005);
+
     //add sprites
     let bird = PIXI.Sprite.from('images/bird2.png');
       container.addChild(bird);

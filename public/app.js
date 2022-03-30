@@ -11,6 +11,9 @@ let slides = []
 //let numSlides = 3;
 let currSlide = 1;
 
+let width = window.innerWidth;
+let height = window.innerHeight;
+
 //sometext
 const style = new PIXI.TextStyle({
     fontFamily: 'Arial',
@@ -42,7 +45,7 @@ basicText.zIndex= 10;
 for(var i = 0; i<numSlides; i++){
 
     const container = new PIXI.Container();
-    container.x = window.innerWidth/2 + (window.innerWidth * i);
+    container.x = window.innerWidth/2;
     container.y = window.innerHeight/2;
     slides.push(container);
     app.stage.addChild(container);

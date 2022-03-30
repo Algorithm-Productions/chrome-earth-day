@@ -62,11 +62,15 @@
              .lineTo(0, this.stemVal.length);
       };
 
-      this.animate = function() {
+      this.animateIn = function(delay) {
+
         let anim = anime.timeline({
           easing: 'easeInOutQuart',
-          duration: 1500
+          duration: 1500,
+          delay: delay
         });
+
+        console.log(delay);
 
         anim
         .add({

@@ -16,6 +16,8 @@
 
       this.leafcontainer = new PIXI.Container();
       this.container.addChild(this.leafcontainer);
+      this.container.x = this.x;
+      this.container.y = this.y;
 
       this.greenleafs = [];
       this.blueleafs = [];
@@ -45,24 +47,24 @@
           this.blueleafs.push(leaf);
           this.leafcontainer.addChild(leaf);
       }
-      this.container.y = this.y;
+
       this.leafcontainer.rotation = degrees_to_radians(180);
 
       this.update = function(delta) {
         this.arc.clear();
         this.arc.lineStyle(3, 0x000000, 1);
         this.arc.arc(0, 0, this.radius, Math.PI, this.arcVal.pos);
-        //this.container.x = master.pos + this.x;
+        // this.container.x = master.pos + this.x;
         this.container.rotation += this.speed * delta;
       };
 
-      this.animate = function() {
+      this.animateIn = function(delay) {
         anime({
           targets: this.arcVal,
           pos: 3 * Math.PI,
           easing: 'easeInOutExpo',
           duration: 3000,
-          delay: 3000
+          delay: delay
         });
 
         this.greenleafs.forEach(function (leaf, i) {
@@ -72,7 +74,7 @@
             y: 0.4,
             easing: 'easeInOutExpo',
             duration: 3000,
-            delay: 3000+i*50
+            delay: delay+i*50
           });
         })
         this.blueleafs.forEach(function (leaf, i) {
@@ -82,7 +84,38 @@
             y: 0.4,
             easing: 'easeInOutExpo',
             duration: 3000,
-            delay: 3000+i*50
+            delay: delay+i*50
+          });
+        })
+      };
+
+      this.animateOut = function(delay) {
+        anime({
+          targets: this.arcVal,
+          pos: Math.PI,
+          easing: 'easeInOutExpo',
+          duration: 3000,
+          delay: delay*1.3
+        });
+
+        this.greenleafs.reverse().forEach(function (leaf, i) {
+          anime({
+            targets: leaf.scale,
+            x: 0,
+            y: 0,
+            easing: 'easeInOutExpo',
+            duration: 3000,
+            delay: delay+i*50
+          });
+        })
+        this.blueleafs.reverse().forEach(function (leaf, i) {
+          anime({
+            targets: leaf.scale,
+            x: 0,
+            y: 0,
+            easing: 'easeInOutExpo',
+            duration: 3000,
+            delay: delay+i*50
           });
         })
       };
