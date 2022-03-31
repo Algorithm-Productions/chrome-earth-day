@@ -4,15 +4,16 @@
     --------------------------------
     */
 
-    function Ring(x, y, radius, count, speed) {
+    function Ring(slide, x, y, radius, count, speed) {
       this.x = x;
       this.y = y;
       this.radius = radius;
       this.count = count;
       this.speed = speed;
 
+      this.slide = slide;
       this.container = new PIXI.Container();
-      app.stage.addChild(this.container);
+      this.slide.addChild(this.container);
 
       this.leafcontainer = new PIXI.Container();
       this.container.addChild(this.leafcontainer);

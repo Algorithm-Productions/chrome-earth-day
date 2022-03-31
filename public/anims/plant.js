@@ -4,9 +4,10 @@
     --------------------------------
     */
 
-    function Plant(x, y) {
+    function Plant(slide, x, y) {
+      this.slide = slide;
       this.container = new PIXI.Container();
-      app.stage.addChild(this.container);
+      this.slide.addChild(this.container);
 
       this.container.x = x;
       this.container.y = y;

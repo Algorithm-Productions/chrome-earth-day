@@ -1,6 +1,8 @@
-function HoverBird(container) {
+function HoverBird(slide) {
 
-      this.container = container;
+      this.slide = slide;
+      this.container = new PIXI.Container();
+      this.slide.addChild(this.container);
 
       this.frames = [];
 

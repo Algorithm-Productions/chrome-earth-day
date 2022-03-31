@@ -1,8 +1,9 @@
-function Windmill(x, y, speed, colour) {
+function Windmill(slide, x, y, speed, colour) {
+      this.slide = slide;
       this.speed = speed;
 
       this.container = new PIXI.Container();
-      app.stage.addChild(this.container);
+      this.slide.addChild(this.container);
 
       this.container.x = x;
       this.container.y = y;

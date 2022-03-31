@@ -1,33 +1,25 @@
 index = 1;
 
-let ring1;
+let ring1, plant1;
 
 slideFuncs[index] = function (container){
 
-    ring1 = new Ring(container, width/2, height/2, 300, 12, 0.005);
+    ring1 = new Ring(container, 0, 0, 300, 12, 0.005);
+    plant1 = new Plant(container, 0, height/2);
 
-    //add sprites
-    let bird = PIXI.Sprite.from('images/bird2.png');
-      container.addChild(bird);
-      bird.scale.set(0.5);
-      bird.y = 200;
-
-
-    let bush = PIXI.Sprite.from('images/bush.png');
-      container.addChild(bush);
-      //bush.anchor.set(0.5,1);
-      bush.scale.set(0.5);
-      bush.x = window.innerWidth/2;
-      bush.y = window.innerHeight;
+    app.ticker.add((delta) => {
+      plant1.update(delta);
+      ring1.update(delta);
+    });
 }
 
 arriveTriggers[index] = function (){
-    console.log(ring1);
+    ring1.animateIn(2000);
+    plant1.animateIn(1000);
 }
 
 leaveTriggers[index] = function (){
-    //console.log(ring1);
-    console.log('leaving slide 1: ' + index);
-    //once complete
+    ring1.animateOut(2000);
+
     arrive(index+1);
 }

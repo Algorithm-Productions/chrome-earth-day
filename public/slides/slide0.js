@@ -1,6 +1,6 @@
 index = 0;
 
-let hoverbird;
+let hoverbird, windmill2;
 
 slideFuncs[index] = function (container){
 
@@ -12,23 +12,21 @@ slideFuncs[index] = function (container){
         hoverbird = new HoverBird(container);
         // console.log(hoverbird);
     }
+    
+    windmill2 = new Windmill(container, 0, height/2, 0.05, 1);
 
-    //add sprites
-    let sprite = PIXI.Sprite.from('images/chrome.png');
-    container.addChild(sprite);
-    sprite.anchor.set(0.5);
-    //sprite.y = window.innerHeight/2;
-    sprite.scale.x = 0.1;
-    sprite.scale.y = 0.1;
+    app.ticker.add((delta) => {
+  		windmill2.update(delta);
+	});
 
 }
 
 arriveTriggers[index] = function (){
-    console.log(hoverbird);
+    windmill2.animateIn();
 }
 
 leaveTriggers[index] = function (){
-    console.log(hoverbird);
+    windmill2.animateOut();
 
     //once complete
     arrive(index+1);
