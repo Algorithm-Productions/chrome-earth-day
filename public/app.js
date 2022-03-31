@@ -54,9 +54,6 @@ function buildContainers(){
 
         slideFuncs[i](container);
     }
-    setTimeout(function () {
-        arriveTriggers[0]();
-    }, 500);
 }
 
 buildContainers();
@@ -74,6 +71,7 @@ function arrive(i){
     console.log('ARRIVED at slide'+currSlide);
     basicText.text ='Slide: '+ currSlide;
     arriveTriggers[currSlide]();
+    progressInc();
 }
 
 //triggers first slide

@@ -11,13 +11,17 @@ slideFuncs[index] = function (container){
     function onAssetsLoaded() {
         hoverbird = new HoverBird(container);
         // console.log(hoverbird);
-    }
-    
-    windmill2 = new Windmill(container, 0, height/2, 0.05, 1);
 
-    app.ticker.add((delta) => {
-  		windmill2.update(delta);
-	});
+        windmill2 = new Windmill(container, 0, height/2, 0.05, 1);
+
+	    app.ticker.add((delta) => {
+	  		windmill2.update(delta);
+		});
+
+		arriveTriggers[0]();
+    }
+
+    
 
 }
 
