@@ -10,8 +10,8 @@ const io = new Server(server);
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.json());
-app.use(express.static(__dirname + '/node_modules/pixi.js/dist/browser'));
-app.use(express.static(__dirname + '/node_modules/pixi-svg/dist'));
+// app.use(express.static(__dirname + '/node_modules/pixi.js/dist/browser'));
+// app.use(express.static(__dirname + '/node_modules/pixi-svg/dist'));
 // app.use(express.static(__dirname + '/node_modules/pixi-dashed-line/dist'));
 
 //var io = require('socket.io')(server, {pingInterval: 5000, pingTimeout: 10000}) // pinginterval handles reporting latency per client
