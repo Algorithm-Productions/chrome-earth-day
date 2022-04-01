@@ -14,7 +14,7 @@ function HoverBird(slide) {
       this.anim = new PIXI.AnimatedSprite(this.frames);
 
       // this.anim.x = app.screen.width / 2;
-      this.anim.y = -300;
+      this.anim.y = -500;
       this.anim.anchor.set(0.5);
       this.anim.scale.set(2);
       this.anim.animationSpeed = 0.5;

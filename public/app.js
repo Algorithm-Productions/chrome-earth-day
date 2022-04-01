@@ -1,3 +1,4 @@
+
 //create app and resize to fit device
 let app = new PIXI.Application({ 
     resizeTo: window,
@@ -39,6 +40,10 @@ basicText.y = 100;
 
 app.stage.addChild(basicText);
 basicText.zIndex= 10;
+
+
+
+
 
 
 //call function for each slide
@@ -93,12 +98,18 @@ document.addEventListener('swiped-left', function(e) {
 function degrees_to_radians(degrees) {
     var pi = Math.PI;
     return degrees * (pi/180);
-  }
+}
 
-  function calcFrame(frame) {
+function calcFrame(frame) {
     return frame * window.innerWidth;
-  }
+}
 
-  function getRandomInt(max) {
+function getRandomInt(max) {
     return Math.floor(Math.random() * max);
-  }
+}
+
+const map = (value, x1, y1, x2, y2) => (value - x1) * (y2 - x2) / (y1 - x1) + x2;
+
+function getRandomIntRange (min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}

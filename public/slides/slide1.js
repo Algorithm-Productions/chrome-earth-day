@@ -19,7 +19,7 @@ arriveTriggers[index] = function (){
 }
 
 leaveTriggers[index] = function (){
-    ring1.animateOut(2000);
+    ring1.animateOut(0);
 
     arrive(index+1);
 }

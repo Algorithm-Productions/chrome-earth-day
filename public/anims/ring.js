@@ -31,7 +31,7 @@
       }
       
       for (let i = 0; i < this.count; i++) {
-          const leaf = new PIXI.Sprite.from('images/greenleaf.png');
+          const leaf = new PIXI.Sprite.from('images/leaf1.png');
           leaf.scale.set(0);
           leaf.x = this.radius *  Math.cos(degrees_to_radians(i*(360/this.count)));
           leaf.y = this.radius *  Math.sin(degrees_to_radians(i*(360/this.count)));
@@ -40,7 +40,7 @@
           this.leafcontainer.addChild(leaf);
       }
       for (let i = 0; i < this.count; i++) {
-          const leaf = new PIXI.Sprite.from('images/blueleaf.png');
+          const leaf = new PIXI.Sprite.from('images/leaf2.png');
           leaf.scale.set(0);
           leaf.x = this.radius *  Math.cos(degrees_to_radians(i*(360/this.count)+(180/this.count)));
           leaf.y = this.radius *  Math.sin(degrees_to_radians(i*(360/this.count)+(180/this.count)));
@@ -71,8 +71,8 @@
         this.greenleafs.forEach(function (leaf, i) {
           anime({
             targets: leaf.scale,
-            x: 0.4,
-            y: 0.4,
+            x: 0.6,
+            y: 0.6,
             easing: 'easeInOutExpo',
             duration: 3000,
             delay: delay+i*50
@@ -81,8 +81,8 @@
         this.blueleafs.forEach(function (leaf, i) {
           anime({
             targets: leaf.scale,
-            x: 0.4,
-            y: 0.4,
+            x: 0.6,
+            y: 0.6,
             easing: 'easeInOutExpo',
             duration: 3000,
             delay: delay+i*50
