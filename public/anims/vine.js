@@ -81,25 +81,25 @@ function Vine(slide, x, y, px, p1y, p2y, radius, stroke) {
 
       this.update = function(delta) {
         this.partA.clear();
-        this.partA.lineStyle(stroke, 0x000000)
+        this.partA.lineStyle(stroke, 0x202124)
              .moveTo(this.out.partA, p1y-radius)
              .lineTo(this.in.partA, p1y-radius);
 
         this.partB.clear();
-        this.partB.lineStyle(stroke, 0x000000, 1);
+        this.partB.lineStyle(stroke, 0x202124, 1);
         this.partB.arc(px-radius, p1y, radius, this.out.partB, this.in.partB);
 
         this.partC.clear();
-        this.partC.lineStyle(stroke, 0x000000)
+        this.partC.lineStyle(stroke, 0x202124)
              .moveTo(px, this.out.partC)
              .lineTo(px, this.in.partC);
 
         this.partD.clear();
-        this.partD.lineStyle(stroke, 0x000000, 1);
+        this.partD.lineStyle(stroke, 0x202124, 1);
         this.partD.arc(px+radius, p2y, radius, this.in.partD, this.out.partD);
 
         this.partE.clear();
-        this.partE.lineStyle(stroke, 0x000000)
+        this.partE.lineStyle(stroke, 0x202124)
              .moveTo(this.out.partE, p2y+radius)
              .lineTo(this.in.partE, p2y+radius);
       };

@@ -12,10 +12,15 @@ slideFuncs[index] = function (container){
         hoverbird = new HoverBird(container);
         // console.log(hoverbird);
 
+        let text = 'Lets find out how';
+        text1 = new Text(container, 0, 0, text, 1);
         windmill2 = new Windmill(container, 0, height/2, 0.05, 1);
-        vine1 = new Vine(container, 0, 0, 300, 0, 400, 100, 4);
+        vine1 = new Vine(container, 0, 0, 300, 100, 450, 100, 4);
+
+
 
 	    app.ticker.add((delta) => {
+            text1.update(delta);
 	  		windmill2.update(delta);
             vine1.update(delta);
 		});
@@ -28,11 +33,13 @@ slideFuncs[index] = function (container){
 }
 
 arriveTriggers[index] = function (){
+    text1.animateIn();
     windmill2.animateIn();
     vine1.animateIn();
 }
 
 leaveTriggers[index] = function (){
+    text1.animateOut();
     windmill2.animateOut();
     vine1.animateOut();
 
