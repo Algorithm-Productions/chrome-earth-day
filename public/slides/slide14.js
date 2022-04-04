@@ -1,18 +1,12 @@
-index = 0;
+index = 14;
+
+//how many computers 
 
 slideFuncs[index] = function (container){
-
-    
-    shape3 = new Shape(container, width/2, 0, "hex", 1);
-
-	arriveTriggers[0]();
-
 
 }
 
 arriveTriggers[index] = function (){
-    shape3.animateIn(0);
-
         //re-enable swiping after 3000 milliseconds
         setTimeout(function(){
             canSwipe = true;
@@ -21,7 +15,5 @@ arriveTriggers[index] = function (){
 }
 
 leaveTriggers[index] = function (){
-    shape3.animateOut(2000);
-    //once complete
     arrive(index+1);
 }

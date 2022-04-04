@@ -26,10 +26,12 @@
     </script> -->
 
     <link rel="stylesheet" href="styles.css">
+
+    <!-- CDNs -->
     <script src="https://pixijs.download/release/pixi.js"></script>
-    <!-- <script src="pixi.js"></script> -->
-    <!-- <script src="pixi-svg.js"></script> -->
-    <!-- <script src="index.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
 
 
 
@@ -39,7 +41,18 @@
     let slideFuncs=[];
     let arriveTriggers=[];
     let leaveTriggers=[];
-    let numSlides = 4;
+    let numSlides = 20;
+    let canSwipe = false;
+
+    //user data vars
+    let region;
+    let numComps;
+    let percComps;
+    let email;
+
+    //results vars
+    let ghgSaved;
+    let energySaved;
     </script>
     
     <!-- add slides -->
@@ -47,9 +60,26 @@
     <script src="slides/slide1.js"></script>
     <script src="slides/slide2.js"></script>
     <script src="slides/slide3.js"></script>
+    <script src="slides/slide4.js"></script>
+    <script src="slides/slide5.js"></script>
+    <script src="slides/slide6.js"></script>
+    <script src="slides/slide7.js"></script>
+    <script src="slides/slide8.js"></script>
+    <script src="slides/slide9.js"></script>
+    <script src="slides/slide10.js"></script>
+    <script src="slides/slide11.js"></script>
+    <script src="slides/slide12.js"></script>
+    <script src="slides/slide13.js"></script>
+    <script src="slides/slide14.js"></script>
+    <script src="slides/slide15.js"></script>
+    <script src="slides/slide16.js"></script>
+    <script src="slides/slide17.js"></script>
+    <script src="slides/slide18.js"></script>
+    <script src="slides/slide19.js"></script>
+
 
     <!-- add elems -->
-    <script src="anime.min.js"></script>
+    <script src="libraries/anime.min.js"></script>
     <script src="anims/ring.js"></script>
     <script src="anims/plant.js"></script>
     <script src="anims/windmill.js"></script>
@@ -78,6 +108,20 @@
       </div>
     </div>
 
+
+    <!-- region selector -->
+    <section class = 'regionSelector'>
+      <span class="dropdown-el">
+        <input type="radio" name="sortType" value="Relevance" checked="checked" id="sort-relevance"><label for="sort-relevance">Relevance</label>
+        <input type="radio" name="sortType" value="Popularity" id="sort-best"><label for="sort-best">Product Popularity</label>
+        <input type="radio" name="sortType" value="PriceIncreasing" id="sort-low"><label for="sort-low">Price Low to High</label>
+        <input type="radio" name="sortType" value="PriceDecreasing" id="sort-high"><label for="sort-high">Price High to Low</label>
+        <input type="radio" name="sortType" value="ProductBrand" id="sort-brand"><label for="sort-brand">Product Brand</label>
+        <input type="radio" name="sortType" value="ProductName" id="sort-name"><label for="sort-name">Product Name</label>
+      </span>
+    </section>
+
+
     <!-- slide button -->
     <!-- <div style = 'position:absolute; z-index: 30;'>
         <button class="button button1" onclick="slide()">SLIDE</button>
@@ -88,6 +132,7 @@
   </body>
 
   <!-- additional libraries -->
-  <script src="progress.js"></script>
-  <script src="swipe.js"></script>
+  <script src="libraries/progress.js"></script>
+  <script src="libraries/swipe.js"></script>
+  <script src="libraries/dropdown.js"></script>
 </html>

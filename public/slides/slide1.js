@@ -25,7 +25,12 @@ arriveTriggers[index] = function (){
 
     shape1.animateIn(2000);
     shape2.animateIn(2000);
-    
+
+    //re-enable swiping
+    setTimeout(function(){
+        canSwipe = true;
+        updateText();
+    }, 3000);
 }
 
 leaveTriggers[index] = function (){

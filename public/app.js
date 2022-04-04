@@ -34,7 +34,7 @@ const style = new PIXI.TextStyle({
     lineJoin: 'round',
 });
 
-const basicText = new PIXI.Text('Slide: '+ currSlide);
+const basicText = new PIXI.Text('Slide: '+ currSlide + ' Can Swipe: '+canSwipe);
 basicText.x = 20;
 basicText.y = 100;
 
@@ -72,15 +72,17 @@ function slide(){
 }
 
 function arrive(i){
+    canSwipe = false;
     currSlide++;
     console.log('ARRIVED at slide'+currSlide);
-    basicText.text ='Slide: '+ currSlide;
     arriveTriggers[currSlide]();
     progressInc();
+    updateText();
 }
 
-//triggers first slide
-
+function updateText(){
+    basicText.text ='Slide: '+ currSlide + ' Can Swipe: '+canSwipe;
+}
 
 // swipe logic
 
@@ -89,8 +91,11 @@ document.addEventListener('swiped-right', function(e) {
 });
 
 document.addEventListener('swiped-left', function(e) {
-    console.log('left'); // the element that was swiped
-    slide();
+    if(canSwipe){
+        console.log('left'); // the element that was swiped
+        slide();
+        updateText();
+    }
 });
 
 // logic

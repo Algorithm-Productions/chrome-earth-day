@@ -19,6 +19,11 @@ arriveTriggers[index] = function (){
     windmill2.animateIn(3000);
     vine1.animateIn(2000);
     
+        //re-enable swiping
+        setTimeout(function(){
+            canSwipe = true;
+            updateText();
+        }, 3000);
 }
 
 leaveTriggers[index] = function (){

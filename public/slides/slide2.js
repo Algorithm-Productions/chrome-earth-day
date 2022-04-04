@@ -19,6 +19,12 @@ arriveTriggers[index] = function (){
     text2.animateIn(3000);
     ring1.animateIn(2000);
     plant1.animateIn(1000);
+
+        //re-enable swiping
+        setTimeout(function(){
+            canSwipe = true;
+            updateText();
+        }, 3000);
 }
 
 leaveTriggers[index] = function (){
