@@ -71,8 +71,6 @@
           delay: delay
         });
 
-        console.log(delay);
-
         anim
         .add({
           targets: this.l1.scale,
@@ -103,6 +101,50 @@
           targets: this.stemVal,
             length: -200
         }, 0)
+
+        
+      };
+
+      this.animateOut = function(delay) {
+
+        let anim = anime.timeline({
+          easing: 'easeInOutQuart',
+          duration: 1500,
+          delay: delay
+        });
+
+        console.log(delay);
+
+        anim
+        .add({
+          targets: this.l1.scale,
+            x: 0,
+            y: 0
+        }, 0)
+        .add({
+          targets: this.l2.scale,
+            x: 0,
+            y: 0
+        }, 250)
+        .add({
+          targets: this.l3.scale,
+            x: 0,
+            y: 0
+        }, 300)
+        .add({
+          targets: this.l4.scale,
+            x: 0,
+            y: 0
+        }, 350)
+        .add({
+          targets: this.l5.scale,
+            x: 0,
+            y: 0
+        }, 400)
+        .add({
+          targets: this.stemVal,
+            length: 0
+        }, 900)
 
         
       };

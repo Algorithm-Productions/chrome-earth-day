@@ -104,10 +104,11 @@ function Vine(slide, x, y, px, p1y, p2y, radius, stroke) {
              .lineTo(this.in.partE, p2y+radius);
       };
 
-      this.animateIn = function() {
+      this.animateIn = function(delay) {
         var animIn = anime.timeline({
           easing: 'linear',
-          duration: 300
+          duration: 300,
+          autoplay: false
         });
 
         animIn
@@ -132,6 +133,11 @@ function Vine(slide, x, y, px, p1y, p2y, radius, stroke) {
           partE: width/2,
         });
 
+        setTimeout(function(){
+            animIn.play();
+        }, delay);
+        
+
         this.leaves.forEach(function (leaf, i) {
           anime({
             targets: leaf.scale,
@@ -139,7 +145,7 @@ function Vine(slide, x, y, px, p1y, p2y, radius, stroke) {
             y: 0.8,
             easing: 'easeInOutExpo',
             duration: 1000,
-            delay: i*80
+            delay: i*80+delay
           });
         })
       };

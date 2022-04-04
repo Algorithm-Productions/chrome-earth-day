@@ -70,13 +70,13 @@ function Text(slide, x, y, text, bg) {
         });
       };
 
-      this.animateIn = function() {
+      this.animateIn = function(delay) {
         anime({
             targets: this.text,
             alpha: 1,
             easing: 'easeInOutExpo',
             duration: 1000,
-            delay: 800
+            delay: delay*1.5
           });
 
         anime({
@@ -84,7 +84,7 @@ function Text(slide, x, y, text, bg) {
             alpha: 1,
             easing: 'easeInOutExpo',
             duration: 1000,
-            delay: 500
+            delay: delay
           });
       };
 

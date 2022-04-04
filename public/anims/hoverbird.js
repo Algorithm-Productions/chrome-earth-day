@@ -1,8 +1,11 @@
-function HoverBird(slide) {
+function HoverBird(slide, x, y) {
 
       this.slide = slide;
       this.container = new PIXI.Container();
       this.slide.addChild(this.container);
+
+      this.container.x = x;
+      this.container.y = y;
 
       this.frames = [];
 
@@ -14,9 +17,9 @@ function HoverBird(slide) {
       this.anim = new PIXI.AnimatedSprite(this.frames);
 
       // this.anim.x = app.screen.width / 2;
-      this.anim.y = -500;
+      this.anim.y = 2000;
       this.anim.anchor.set(0.5);
-      this.anim.scale.set(2);
+      this.anim.scale.set(3);
       this.anim.animationSpeed = 0.5;
       this.anim.play();
 
@@ -27,16 +30,22 @@ function HoverBird(slide) {
 
       this.animateIn = function() {
         anime({
-          targets: this.anim.scale,
-          x: 3,
+          targets: this.anim,
+          y: 0,
           easing: 'easeInOutExpo',
-          duration: 3000,
-          delay: delay
+          duration: 2000,
+          delay: 500
         });
       };
 
       this.animateOut = function() {
-        
+        anime({
+          targets: this.anim,
+          y: -2000,
+          easing: 'easeInOutExpo',
+          duration: 2000,
+          delay: 500
+        });
       };
 
     }

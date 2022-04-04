@@ -25,9 +25,10 @@ function Windmill(slide, x, y, speed, colour) {
         this.fan.rotation -= this.speed * delta;
       };
 
-      this.animateIn = function() {
+      this.animateIn = function(delay) {
         let anim = anime.timeline({
           easing: 'easeInOutQuart',
+          autoplay: false,
           duration: 1000
         });
 
@@ -45,7 +46,12 @@ function Windmill(slide, x, y, speed, colour) {
             x: 1,
             y: 1
         }, 800)
+
+        setTimeout(function(){
+            anim.play();
+        }, delay);
       };
+
 
       this.animateOut = function() {
         let anim = anime.timeline({

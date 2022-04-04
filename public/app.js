@@ -108,7 +108,9 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
-const map = (value, x1, y1, x2, y2) => (value - x1) * (y2 - x2) / (y1 - x1) + x2;
+function map(value, x1, y1, x2, y2) {
+    return (value - x1) * (y2 - x2) / (y1 - x1) + x2;
+} 
 
 function getRandomIntRange (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
