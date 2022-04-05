@@ -13,6 +13,9 @@ slideFuncs[index] = function (container){
 arriveTriggers[index] = function (){
     shape3.animateIn(0);
 
+    //document.getElementById('dropdown').hidden = false;
+    //document.getElementById('dropdown').addClass('fade-in');
+    
         //re-enable swiping after 3000 milliseconds
         setTimeout(function(){
             canSwipe = true;

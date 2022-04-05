@@ -118,25 +118,24 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  padding: 10px;
+  /* padding: 10px; */
   font-family: googleSans;
+  font-size: 50px;
 }
 
 .dropdown-el {
-  min-width: 40em;
+  min-width: 12em;
   position: relative;
   display: inline-block;
   margin-right: 1em;
-  min-height: 6em;
-  max-height: 6em;
+  min-height: 2em;
+  max-height: 2em;
   overflow: hidden;
-  top: 0.5em;
   cursor: pointer;
-  text-align: left;
+  text-align: center;
   white-space: nowrap;
   color: #444;
   outline: none;
-  border: 0.06em solid transparent;
   border-radius: 1em;
   background-color: #cde4f5;
   transition: 0.3s all ease-in-out;
@@ -154,10 +153,8 @@ body {
 .dropdown-el label {
   border-top: 0.06em solid #d9d9d9;
   display: block;
-  height: 6em;
+  height: 2em;
   line-height: 2em;
-  padding-left: 1em;
-  padding-right: 3em;
   cursor: pointer;
   position: relative;
   transition: 0.3s color ease-in-out;
@@ -206,4 +203,36 @@ body {
 .dropdown-el.expanded::after {
   transform: rotate(-180deg);
   top: 0.55em;
+}
+
+.fade-in {
+  animation: fadeIn 5s;
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  -ms-animation: fadeIn 5s;
+}
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
 }
