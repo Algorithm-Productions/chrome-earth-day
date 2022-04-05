@@ -1,9 +1,16 @@
 index = 0;
 
+let logo;
+
 slideFuncs[index] = function (container){
 
+    logo = PIXI.Sprite.from('images/chrome.png');
+    container.addChild(logo);
+    logo.anchor.set(0.5);
+    logo.scale.set(0.15);
+
+    globe1 = new Globe(container, 0, 0, true);
     
-    shape3 = new Shape(container, width/2, 0, "hex", 1);
 
 	arriveTriggers[0]();
 
@@ -11,20 +18,21 @@ slideFuncs[index] = function (container){
 }
 
 arriveTriggers[index] = function (){
-    shape3.animateIn(0);
-
-    //document.getElementById('dropdown').hidden = false;
-    //document.getElementById('dropdown').addClass('fade-in');
+    
+        globe1.animateIn(0);
     
         //re-enable swiping after 3000 milliseconds
         setTimeout(function(){
             canSwipe = true;
-            updateText();
-        }, 3000);
+            updateText(); 
+        }, 1000);
 }
 
 leaveTriggers[index] = function (){
-    shape3.animateOut(2000);
+    logo.scale.set(0);
+
+    globe1.animateOut(0);
+    
     //once complete
     arrive(index+1);
 }

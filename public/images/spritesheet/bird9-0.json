@@ -1,0 +1,240 @@
+{"frames": {
+
+"bird 900.png":
+{
+	"frame": {"x":323,"y":1275,"w":307,"h":258},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":132,"y":90,"w":307,"h":258},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 901.png":
+{
+	"frame": {"x":960,"y":1,"w":320,"h":277},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":119,"y":94,"w":320,"h":277},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 902.png":
+{
+	"frame": {"x":1,"y":1,"w":308,"h":330},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":131,"y":83,"w":308,"h":330},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 903.png":
+{
+	"frame": {"x":333,"y":1,"w":283,"h":343},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":156,"y":80,"w":283,"h":343},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 904.png":
+{
+	"frame": {"x":307,"y":631,"w":320,"h":304},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":119,"y":88,"w":320,"h":304},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 905.png":
+{
+	"frame": {"x":935,"y":894,"w":317,"h":265},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":122,"y":90,"w":317,"h":265},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 906.png":
+{
+	"frame": {"x":1256,"y":566,"w":311,"h":260},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":128,"y":88,"w":311,"h":260},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 907.png":
+{
+	"frame": {"x":934,"y":608,"w":320,"h":284},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":119,"y":90,"w":320,"h":284},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 908.png":
+{
+	"frame": {"x":628,"y":618,"w":304,"h":329},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":135,"y":80,"w":304,"h":329},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 909.png":
+{
+	"frame": {"x":286,"y":346,"w":283,"h":340},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":156,"y":77,"w":283,"h":340},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 910.png":
+{
+	"frame": {"x":934,"y":286,"w":320,"h":303},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":119,"y":85,"w":320,"h":303},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 911.png":
+{
+	"frame": {"x":610,"y":1255,"w":317,"h":264},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":122,"y":88,"w":317,"h":264},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 912.png":
+{
+	"frame": {"x":1254,"y":1157,"w":311,"h":260},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":128,"y":86,"w":311,"h":260},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 913.png":
+{
+	"frame": {"x":1239,"y":280,"w":320,"h":284},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":119,"y":89,"w":320,"h":284},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 914.png":
+{
+	"frame": {"x":1,"y":656,"w":304,"h":329},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":135,"y":80,"w":304,"h":329},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 915.png":
+{
+	"frame": {"x":618,"y":1,"w":283,"h":340},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":156,"y":78,"w":283,"h":340},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 916.png":
+{
+	"frame": {"x":613,"y":949,"w":320,"h":304},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":119,"y":86,"w":320,"h":304},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 917.png":
+{
+	"frame": {"x":1,"y":1293,"w":317,"h":264},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":122,"y":90,"w":317,"h":264},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 918.png":
+{
+	"frame": {"x":1282,"y":1,"w":311,"h":261},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":128,"y":88,"w":311,"h":261},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 919.png":
+{
+	"frame": {"x":323,"y":953,"w":320,"h":285},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":119,"y":91,"w":320,"h":285},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 920.png":
+{
+	"frame": {"x":628,"y":286,"w":304,"h":330},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":135,"y":83,"w":304,"h":330},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 921.png":
+{
+	"frame": {"x":1,"y":311,"w":283,"h":343},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":156,"y":80,"w":283,"h":343},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 922.png":
+{
+	"frame": {"x":1,"y":987,"w":320,"h":304},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":119,"y":89,"w":320,"h":304},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 923.png":
+{
+	"frame": {"x":935,"y":1213,"w":317,"h":265},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":122,"y":92,"w":317,"h":265},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+},
+"bird 924.png":
+{
+	"frame": {"x":1202,"y":894,"w":311,"h":261},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":128,"y":90,"w":311,"h":261},
+	"sourceSize": {"w":576,"h":436},
+	"anchor": {"x":0,"y":0}
+}},
+"animations": {
+	"bird ": ["bird 900.png","bird 901.png","bird 902.png","bird 903.png","bird 904.png","bird 905.png","bird 906.png","bird 907.png","bird 908.png","bird 909.png","bird 910.png","bird 911.png","bird 912.png","bird 913.png","bird 914.png","bird 915.png","bird 916.png","bird 917.png","bird 918.png","bird 919.png","bird 920.png","bird 921.png","bird 922.png","bird 923.png","bird 924.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "bird9-0.png",
+	"format": "RGBA8888",
+	"size": {"w":1594,"h":1583},
+	"scale": "0.3",
+	"smartupdate": "$TexturePacker:SmartUpdate:7c647ed4ca4ff5ec2640ef37818abb63:a55d61de8b33f4ba31aaa3e8e2d117ca:0179080012c8931dde3d3f062d31bfd8$"
+}
+}

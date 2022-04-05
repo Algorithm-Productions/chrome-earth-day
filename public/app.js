@@ -15,24 +15,6 @@ let currSlide = 0;
 let width = window.innerWidth;
 let height = window.innerHeight;
 
-//sometext
-const style = new PIXI.TextStyle({
-    fontFamily: 'Arial',
-    fontSize: 36,
-    fontStyle: 'italic',
-    fontWeight: 'bold',
-    fill: ['#ffffff', '#00ff99'], // gradient
-    stroke: '#4a1850',
-    strokeThickness: 5,
-    dropShadow: true,
-    dropShadowColor: '#000000',
-    dropShadowBlur: 4,
-    dropShadowAngle: Math.PI / 6,
-    dropShadowDistance: 6,
-    wordWrap: true,
-    wordWrapWidth: 440,
-    lineJoin: 'round',
-});
 
 const basicText = new PIXI.Text('Slide: '+ currSlide + ' Can Swipe: '+canSwipe);
 basicText.x = 20;
@@ -42,26 +24,40 @@ app.stage.addChild(basicText);
 basicText.zIndex= 10;
 
 
-
-
-
-
 //call function for each slide
+app.loader
+    .add('images/spritesheet/bird1-0.json')
+    .add('images/spritesheet/bird2-0.json')
+    .add('images/spritesheet/bird3-0.json')
+    .add('images/spritesheet/bird4.json')
+    .add('images/spritesheet/bird5.json')
+    .add('images/spritesheet/bird6-0.json')
+    .add('images/spritesheet/bird7-0.json')
+    .add('images/spritesheet/bird8-0.json')
+    .add('images/spritesheet/bird9-0.json')
+    .add('images/spritesheet/running-0.json')
+    .add('images/spritesheet/globe-0.json')
+    .load(onAssetsLoaded);
 
-function buildContainers(){
-    for(var i = 0; i<numSlides; i++){
+    function onAssetsLoaded() {
 
-        const container = new PIXI.Container();
-        container.x = window.innerWidth/2;
-        container.y = window.innerHeight/2;
-        slides.push(container);
-        app.stage.addChild(container);
+        function buildContainers(){
+            for(var i = 0; i<numSlides; i++){
 
-        slideFuncs[i](container);
+                const container = new PIXI.Container();
+                container.x = window.innerWidth/2;
+                container.y = window.innerHeight/2;
+                slides.push(container);
+                app.stage.addChild(container);
+
+                slideFuncs[i](container);
+            }
+        }
+
+        buildContainers();
+
     }
-}
 
-buildContainers();
 
 function getRandomArbitrary(min, max) {
 return Math.random() * (max - min) + min;
@@ -81,8 +77,31 @@ function arrive(i){
 }
 
 function updateText(){
-    basicText.text ='Slide: '+ currSlide + ' Can Swipe: '+canSwipe;
+    basicText.text ='Slide: '+ currSlide + ' Can Swipe: '+canSwipe + ' Region: '+region;
 }
+
+//user interaction functions
+
+function submitRegion(){
+    if(region!=null && region!= 'Choose Region'){
+        slide();
+    } else {
+        console.log('please select a region')
+    }
+}
+
+function submitComps(){
+
+    numComps = document.getElementById('inp').value;
+    if(numComps!=null && numComps!= 'Enter Count'){
+        slide();
+    } else {
+        console.log('please select a region')
+    }
+
+    
+}
+
 
 // swipe logic
 

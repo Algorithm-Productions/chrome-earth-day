@@ -1,23 +1,30 @@
 index = 3;
 
 slideFuncs[index] = function (container){
-    
-	let text = 'Lets find out how';
-    text1 = new Text(container, 0, 0, text, 1);
-    windmill2 = new Windmill(container, 0, height/2, 0.05, 1);
-    vine1 = new Vine(container, 0, 0, 300, 100, 450, 100, 4);
+
+
+
+    let text = 'Imagine if every device used less energy \n and could even have a second life';
+    text2 = new Text(container, 0, 0, text, 2);
+    running = new Running(container, 50, 200);
+    ring1 = new Ring(container, 0, 0, 300, 12, 0.01);
+    plant1 = new Plant(container, 0, height/2);
 
     app.ticker.add((delta) => {
-        text1.update(delta);
-  		windmill2.update(delta);
-        vine1.update(delta);
-	});
+        text2.update(delta);
+        plant1.update(delta);
+        ring1.update(delta);
+    });
+    
+	
 }
 
 arriveTriggers[index] = function (){
-	text1.animateIn(3000);
-    windmill2.animateIn(3000);
-    vine1.animateIn(2000);
+
+    text2.animateIn(3000);
+    ring1.animateIn(2000);
+    plant1.animateIn(1000);
+    running.animateIn(2000);
     
         //re-enable swiping
         setTimeout(function(){
@@ -27,9 +34,11 @@ arriveTriggers[index] = function (){
 }
 
 leaveTriggers[index] = function (){
-    text1.animateOut();
-    windmill2.animateOut();
-    vine1.animateOut();
+    
+    text2.animateOut();
+    ring1.animateOut(0);
+    plant1.animateOut(0);
+    running.animateOut(0);
 
     //once complete
     arrive(index+1);

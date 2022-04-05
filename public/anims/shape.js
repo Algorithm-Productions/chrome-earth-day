@@ -62,14 +62,14 @@ function Shape(slide, x, y, shape, scale) {
           });
       };
 
-      this.animateOut = function() {
+      this.animateOut = function(delay) {
         anime({
             targets: this.shape.scale,
             x: 0,
             y: 0,
             easing: 'easeInOutExpo',
             duration: 1000,
-            delay: 800
+            delay: delay
           });
       };
 

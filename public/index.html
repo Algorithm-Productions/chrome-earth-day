@@ -83,10 +83,15 @@
     <script src="anims/ring.js"></script>
     <script src="anims/plant.js"></script>
     <script src="anims/windmill.js"></script>
-    <script src="anims/hoverbird.js"></script>
+    <script src="anims/bird1.js"></script>
+    <script src="anims/bird4.js"></script>
+    <script src="anims/running.js"></script>
+    <script src="anims/globe.js"></script>
     <script src="anims/vine.js"></script>
     <script src="anims/text.js"></script>
     <script src="anims/shape.js"></script>
+    <script src="anims/branch.js"></script>
+    <script src="anims/sun.js"></script>
     
   </head>
   <body>
@@ -108,19 +113,26 @@
       </div>
     </div>
 
-
     <!-- region selector -->
-    <section id="dropdown" class = 'regionSelector' hidden>
-      <span class="dropdown-el">
-        <input type="radio" name="sortType" value="Relevance" checked="checked" id="sort-relevance"><label for="sort-relevance">Relevance</label>
-        <input type="radio" name="sortType" value="Popularity" id="sort-best"><label for="sort-best">Product Popularity</label>
-        <input type="radio" name="sortType" value="PriceIncreasing" id="sort-low"><label for="sort-low">Price Low to High</label>
-        <input type="radio" name="sortType" value="PriceDecreasing" id="sort-high"><label for="sort-high">Price High to Low</label>
-        <input type="radio" name="sortType" value="ProductBrand" id="sort-brand"><label for="sort-brand">Product Brand</label>
-        <input type="radio" name="sortType" value="ProductName" id="sort-name"><label for="sort-name">Product Name</label>
-      </span>
+    <section>
+      <div id="dropdown" class = 'regionSelector' hidden>
+        <span class="dropdown-el">
+          <input type="radio" name="sortType" value="Choose Region" checked="checked" id="sort-relevance"><label for="sort-relevance">Choose Region</label>
+          <input type="radio" name="sortType" value="Great Britain" id="sort-best"><label for="sort-best">Great Britain</label>
+          <input type="radio" name="sortType" value="PriceIncreasing" id="sort-low"><label for="sort-low">USA</label>
+          <input type="radio" name="sortType" value="PriceDecreasing" id="sort-high"><label for="sort-high">Ireland</label>
+          <input type="radio" name="sortType" value="ProductBrand" id="sort-brand"><label for="sort-brand">France</label>
+          <input type="radio" name="sortType" value="ProductName" id="sort-name"><label for="sort-name">Germany</label>
+        </span>
+        <button onclick="submitRegion();" class="button">Submit</button>
+      </div>
     </section>
 
+        <!-- Enter Number of Computers -->
+        <div id="input" class = 'inputFieldP' hidden>
+          <input id = 'inp' name="numOnly" class = 'inputField' type='tel' type="number" oninput="return onlynum()" value="Enter Count"></input>
+          <button onclick="submitComps();" class="buttonComp">Submit</button>
+        </div>
 
     <!-- slide button -->
     <!-- <div style = 'position:absolute; z-index: 30;'>
@@ -135,4 +147,30 @@
   <script src="libraries/progress.js"></script>
   <script src="libraries/swipe.js"></script>
   <script src="libraries/dropdown.js"></script>
+
+  <script>
+    $(function() {
+        $("input[name='numonly']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^0-9]/g, ''));
+        });
+    });
+  </script>
+  <script>
+    function onlynum() {
+        var ip = document.getElementById("inp");
+        var res = ip.value;
+  
+        if (res != '') {
+            if (isNaN(res)) {
+                  
+                // Set input value empty
+                ip.value = "";
+                  
+                return false;
+            } else {
+                return true
+            }
+        }
+    }
+</script>
 </html>

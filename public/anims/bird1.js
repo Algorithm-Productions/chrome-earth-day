@@ -1,4 +1,4 @@
-function HoverBird(slide, x, y) {
+function Bird1(slide, x, y) {
 
       this.slide = slide;
       this.container = new PIXI.Container();
@@ -9,9 +9,9 @@ function HoverBird(slide, x, y) {
 
       this.frames = [];
 
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 48; i++) {
           const val = i < 10 ? `0${i}` : i;
-          this.frames.push(PIXI.Texture.from(`bird10${val}.png`));
+          this.frames.push(PIXI.Texture.from(`bird1${val}.png`));
       }
 
       this.anim = new PIXI.AnimatedSprite(this.frames);
@@ -19,7 +19,7 @@ function HoverBird(slide, x, y) {
       // this.anim.x = app.screen.width / 2;
       this.anim.y = 2000;
       this.anim.anchor.set(0.5);
-      this.anim.scale.set(3);
+      this.anim.scale.set(0.5);
       this.anim.animationSpeed = 0.5;
       this.anim.play();
 
