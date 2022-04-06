@@ -37,6 +37,7 @@ app.loader
     .add('images/spritesheet/bird9-0.json')
     .add('images/spritesheet/running-0.json')
     .add('images/spritesheet/globe-0.json')
+    .add('images/spritesheet/bubbles-0.json')
     .load(onAssetsLoaded);
 
     function onAssetsLoaded() {

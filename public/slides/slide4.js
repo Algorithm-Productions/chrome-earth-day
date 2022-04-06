@@ -1,22 +1,27 @@
 index = 4;
 
 slideFuncs[index] = function (container){
-    let text = 'Lets find out how';
-    text1 = new Text(container, 0, 0, text, 1);
-    windmill2 = new Windmill(container, 0, height/2, 0.05, 1);
-    vine1 = new Vine(container, 0, 0, 300, 100, 450, 100, 4);
+    plantL = new Plant(container, -350, height/2-100);
+    plantM = new Plant(container, 20, height/2-250);
+    plantR = new Plant(container, 350, height/2-100);
+    bush1 = new Bush(container, 0, height/2, 1, 1.5);
+    iconR = new Icon(container, width/4, -height/4, "recycle", 1);
+    
 
     app.ticker.add((delta) => {
-        text1.update(delta);
-  		windmill2.update(delta);
-        vine1.update(delta);
-	});
+        plantL.update(delta);
+        plantM.update(delta);
+        plantR.update(delta);
+    });
 }
 
 arriveTriggers[index] = function (){
-        text1.animateIn(3000);
-        windmill2.animateIn(3000);
-        vine1.animateIn(2000);
+
+    bush1.animateIn(0);
+    plantL.animateIn(1000);
+    plantM.animateIn(1000);
+    plantR.animateIn(1000);
+    iconR.animateIn(500);
 
         //re-enable swiping after 3000 milliseconds
         setTimeout(function(){
@@ -26,9 +31,11 @@ arriveTriggers[index] = function (){
 }
 
 leaveTriggers[index] = function (){
-    text1.animateOut();
-    windmill2.animateOut();
-    vine1.animateOut();
+    bush1.animateOut(2000);
+    plantL.animateOut(0);
+    plantM.animateOut(0);
+    plantR.animateOut(0);
+    iconR.animateOut(0);
     
     arrive(index+1);
 }

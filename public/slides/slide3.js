@@ -2,29 +2,26 @@ index = 3;
 
 slideFuncs[index] = function (container){
 
-
-
-    let text = 'Imagine if every device used less energy \n and could even have a second life';
-    text2 = new Text(container, 0, 0, text, 2);
-    running = new Running(container, 50, 200);
-    ring1 = new Ring(container, 0, 0, 300, 12, 0.01);
-    plant1 = new Plant(container, 0, height/2);
-
-    app.ticker.add((delta) => {
-        text2.update(delta);
-        plant1.update(delta);
-        ring1.update(delta);
-    });
+    icon2 = new Icon(container, -100, -300, "plug", 1);
+    sun2 = new Sun(container, 300, 250, 100);
+    shape4 = new Shape(container, 200, 400, "bigleaf", 0.9);
+    branch2 = new Branch(container, -100, 650);
+    shape5 = new Shape(container, 200, 600, "flower", 0.7);
+    bird5 = new Bird5(container, 200, 550);
+    
+    
     
 	
 }
 
 arriveTriggers[index] = function (){
 
-    text2.animateIn(3000);
-    ring1.animateIn(2000);
-    plant1.animateIn(1000);
-    running.animateIn(2000);
+        icon2.animateIn(1000);
+        shape4.animateIn(1000);
+        shape5.animateIn(1500);
+        branch2.animateIn(2000);
+        sun2.animateIn(1000);
+        bird5.animateIn(0);
     
         //re-enable swiping
         setTimeout(function(){
@@ -35,10 +32,13 @@ arriveTriggers[index] = function (){
 
 leaveTriggers[index] = function (){
     
-    text2.animateOut();
-    ring1.animateOut(0);
-    plant1.animateOut(0);
-    running.animateOut(0);
+    icon2.animateOut(0);
+    shape4.animateOut(0);
+    shape5.animateOut(0);
+    branch2.animateOut(0);
+    sun2.animateOut(0);
+    bird5.animateOut(0);
+    
 
     //once complete
     arrive(index+1);

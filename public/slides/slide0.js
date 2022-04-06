@@ -9,7 +9,7 @@ slideFuncs[index] = function (container){
     logo.anchor.set(0.5);
     logo.scale.set(0.15);
 
-    globe1 = new Globe(container, 0, 0, true);
+    globe1 = new Globe(container, 0, 0, false);
     
 
 	arriveTriggers[0]();

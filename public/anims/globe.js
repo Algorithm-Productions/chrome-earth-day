@@ -8,6 +8,7 @@ function Globe(slide, x, y, loop) {
     this.container.y = y;
 
     this.frames = [];
+    this.bFrames = [];
 
     for (let i = 0; i < 125; i++) {
         // const val = i < 10 ? `0${i}` : i;
@@ -20,17 +21,20 @@ function Globe(slide, x, y, loop) {
             val = i;
         }
         this.frames.push(PIXI.Texture.from(`globe${val}.png`));
+        this.bFrames.push(PIXI.Texture.from(`bubbles${val}.png`));
     }
 
     this.anim = new PIXI.AnimatedSprite(this.frames);
+    this.bubbles = new PIXI.AnimatedSprite(this.bFrames);
 
     let speed = 0.5;
-    // this.anim.x = app.screen.width / 2;
     this.anim.anchor.set(0.538, 0.494);
     this.anim.scale.set(0);
     this.anim.animationSpeed = speed;
     this.anim.loop = false;
-    this.anim.play();
+    // this.anim.play();
+
+    
 
     // const graphics = new PIXI.Graphics();
     // graphics.lineStyle(10, 0xFFBD01, 1);
@@ -44,22 +48,48 @@ function Globe(slide, x, y, loop) {
             this.play();
             // console.log(this);
         };
+    } else {
+        this.bubbles.anchor.set(0.538, 0.494);
+        this.bubbles.scale.set(0);
+        this.bubbles.animationSpeed = 0.5;
+        this.bubbles.loop = false;
+        // this.bubbles.play();
     }
 
     this.container.addChild(this.anim);
+    this.container.addChild(this.bubbles);
 
     this.update = function(delta) {
     };
 
     this.animateIn = function(delay) {
-      anime({
-        targets: this.anim.scale,
-        x: 1,
-        y: 1,
-        easing: 'easeInOutExpo',
-        duration: 2000,
-        delay: delay
-      });
+        let globe = this.anim;
+        anime({
+            targets: this.anim.scale,
+            x: 1,
+            y: 1,
+            easing: 'easeInOutExpo',
+            duration: 1000,
+            delay: delay,
+            complete: function(anim) {
+                globe.play();
+            }
+        });
+
+        let bubbles = this.bubbles;
+        anime({
+            targets: this.bubbles.scale,
+            x: 1,
+            y: 1,
+            easing: 'easeInOutExpo',
+            duration: 1000,
+            delay: delay,
+            complete: function(anim) {
+                if (!loop) {
+                    bubbles.play();
+                }
+            }
+        });
     };
 
     this.animateOut = function(delay) {
@@ -68,7 +98,16 @@ function Globe(slide, x, y, loop) {
         x: 0,
         y: 0,
         easing: 'easeInOutExpo',
-        duration: 2000,
+        duration: 1000,
+        delay: delay
+      });
+
+      anime({
+        targets: this.bubbles.scale,
+        x: 0,
+        y: 0,
+        easing: 'easeInOutExpo',
+        duration: 1000,
         delay: delay
       });
     };

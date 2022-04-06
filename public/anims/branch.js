@@ -101,14 +101,14 @@ function Branch(slide, x, y) {
             x: 0,
             y: 0,
             easing: 'easeInOutExpo',
-            duration: 3000,
+            duration: 2000,
             delay: delay
         });
         anime({
             targets: this.container,
             rotation: -2,
             easing: 'easeInOutExpo',
-            duration: 3000,
+            duration: 2000,
             delay: delay
         });
 
@@ -118,7 +118,7 @@ function Branch(slide, x, y) {
               x: 0,
               y: 0,
               easing: 'easeInOutExpo',
-              duration: 3000,
+              duration: 2000,
               delay: i*200
             });
         })
