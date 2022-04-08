@@ -21,11 +21,11 @@ arriveTriggers[index] = function (){
 
     bird1.animateIn();
 
-    shape1.animateIn(2000);
-    shape2.animateIn(2000);
-    branch1.animateIn(2500);
-    sun1.animateIn(1500);
-    icon1.animateIn(2000);
+    shape1.animateIn(1000);
+    shape2.animateIn(1000);
+    branch1.animateIn(500);
+    sun1.animateIn(500);
+    icon1.animateIn(1500);
 
         //re-enable swiping
         setTimeout(function(){
@@ -39,8 +39,8 @@ leaveTriggers[index] = function (){
     bird1.animateOut();
 
     shape1.animateOut(1000);
-    shape2.animateOut(2000);
-    branch1.animateOut(500);
+    shape2.animateOut(1000);
+    branch1.animateOut(0);
     sun1.animateOut(0);
     icon1.animateOut(0);
     

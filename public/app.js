@@ -15,11 +15,11 @@ let currSlide = 0;
 let width = window.innerWidth;
 let height = window.innerHeight;
 
-
-const basicText = new PIXI.Text('Slide: '+ currSlide + ' Can Swipe: '+canSwipe);
-basicText.x = 20;
+let text = 'Slide: '+ currSlide + '\n Can Swipe: '+canSwipe;
+const basicText = new PIXI.Text(text);
+basicText.x = 10;
 basicText.y = 100;
-
+basicText.width = width/4;
 app.stage.addChild(basicText);
 basicText.zIndex= 10;
 
@@ -78,7 +78,7 @@ function arrive(i){
 }
 
 function updateText(){
-    basicText.text ='Slide: '+ currSlide + ' Can Swipe: '+canSwipe + ' Region: '+region;
+    basicText.text ='Slide: '+ currSlide + '\n Can Swipe: '+canSwipe + '\n Region: '+region + '\n Num Comps: '+ numComps+ '\n Percent Comps: '+percComps;
 }
 
 //user interaction functions

@@ -84,6 +84,7 @@
     <script src="anims/plant.js"></script>
     <script src="anims/windmill.js"></script>
     <script src="anims/bird1.js"></script>
+    <script src="anims/bird3.js"></script>
     <script src="anims/bird4.js"></script>
     <script src="anims/bird5.js"></script>
     <script src="anims/running.js"></script>
@@ -133,9 +134,27 @@
 
         <!-- Enter Number of Computers -->
         <div id="input" class = 'inputFieldP' hidden>
+          <div class = 'box'>
           <input id = 'inp' name="numOnly" class = 'inputField' type='tel' type="number" oninput="return onlynum()" value="Enter Count"></input>
           <button onclick="submitComps();" class="buttonComp">Submit</button>
+          </div>
         </div>
+
+        <!-- slider selecter -->
+        <section id="slider" class="range-slider-wrapper" hidden>
+          <div class="range-slider-container">
+            <div class="range-slider-block">
+              <div id="range-sliders" class="range-sliders">
+                <div class="range-slider-group range-slider-group-green">
+
+                  <input type="range" min="0" max="100" value="50" data-color="rgba(211,233,215)" class="range-slider range-slider-green" id="range-slider-green" />
+                  <input  type='text' min="0" max="100" value="50" class="input-slider input-slider-green" id="input-slider-green" disabled ><div class = 'percent' disabled>%</div></input>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
     <!-- slide button -->
     <!-- <div style = 'position:absolute; z-index: 30;'>
@@ -150,6 +169,7 @@
   <script src="libraries/progress.js"></script>
   <script src="libraries/swipe.js"></script>
   <script src="libraries/dropdown.js"></script>
+  <script src="libraries/slider.js"></script>
 
   <script>
     $(function() {

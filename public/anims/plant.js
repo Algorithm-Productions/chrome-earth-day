@@ -113,8 +113,6 @@
           delay: delay
         });
 
-        console.log(delay);
-
         anim
         .add({
           targets: this.l1.scale,

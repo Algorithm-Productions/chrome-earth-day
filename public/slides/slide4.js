@@ -6,6 +6,7 @@ slideFuncs[index] = function (container){
     plantR = new Plant(container, 350, height/2-100);
     bush1 = new Bush(container, 0, height/2, 1, 1.5);
     iconR = new Icon(container, width/4, -height/4, "recycle", 1);
+    bird3 = new Bird3(container, 0, 200);
     
 
     app.ticker.add((delta) => {
@@ -22,6 +23,7 @@ arriveTriggers[index] = function (){
     plantM.animateIn(1000);
     plantR.animateIn(1000);
     iconR.animateIn(500);
+    bird3.animateIn();
 
         //re-enable swiping after 3000 milliseconds
         setTimeout(function(){
@@ -36,6 +38,7 @@ leaveTriggers[index] = function (){
     plantM.animateOut(0);
     plantR.animateOut(0);
     iconR.animateOut(0);
+    bird3.animateOut();
     
     arrive(index+1);
 }

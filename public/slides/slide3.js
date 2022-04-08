@@ -18,10 +18,10 @@ arriveTriggers[index] = function (){
 
         icon2.animateIn(1000);
         shape4.animateIn(1000);
-        shape5.animateIn(1500);
-        branch2.animateIn(2000);
+        shape5.animateIn(500);
+        branch2.animateIn(1000);
         sun2.animateIn(1000);
-        bird5.animateIn(0);
+        bird5.animateIn(1500);
     
         //re-enable swiping
         setTimeout(function(){
@@ -34,7 +34,7 @@ leaveTriggers[index] = function (){
     
     icon2.animateOut(0);
     shape4.animateOut(0);
-    shape5.animateOut(0);
+    shape5.animateOut(500);
     branch2.animateOut(0);
     sun2.animateOut(0);
     bird5.animateOut(0);

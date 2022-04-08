@@ -6,12 +6,11 @@ slideFuncs[index] = function (container){
 
 arriveTriggers[index] = function (){
         //re-enable swiping after 3000 milliseconds
-        setTimeout(function(){
-            canSwipe = true;
-            updateText();
-        }, 3000);
+
+        $("#dropdown").fadeIn(1000);
 }
 
 leaveTriggers[index] = function (){
+    $("#dropdown").fadeOut(1000);
     arrive(index+1);
 }

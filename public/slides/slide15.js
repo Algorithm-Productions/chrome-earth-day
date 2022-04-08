@@ -4,16 +4,21 @@ index = 15;
 
 slideFuncs[index] = function (container){
 
+   
+
 }
 
 arriveTriggers[index] = function (){
         //re-enable swiping after 3000 milliseconds
-        setTimeout(function(){
-            canSwipe = true;
-            updateText();
-        }, 3000);
+
+        $("#slider").fadeIn(1000);
+
+
 }
 
 leaveTriggers[index] = function (){
+
+    $("#slider").fadeOut(1000);
+
     arrive(index+1);
 }

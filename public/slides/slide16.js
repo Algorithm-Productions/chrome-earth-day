@@ -8,6 +8,9 @@ slideFuncs[index] = function (container){
 }
 
 arriveTriggers[index] = function (){
+
+
+
         //re-enable swiping after 3000 milliseconds
         setTimeout(function(){
             canSwipe = true;
@@ -16,5 +19,6 @@ arriveTriggers[index] = function (){
 }
 
 leaveTriggers[index] = function (){
+
     arrive(index+1);
 }
