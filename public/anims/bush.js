@@ -16,6 +16,8 @@ function Bush(slide, x, y, style, scale) {
       this.bush = PIXI.Sprite.from('images/bush3.png');
     } else if (style == 4) {
       this.bush = PIXI.Sprite.from('images/bush4.png');
+    } else if (style == 5) {
+      this.bush = PIXI.Sprite.from('images/bush5.png');
     }
 
     this.container.addChild(this.bush);

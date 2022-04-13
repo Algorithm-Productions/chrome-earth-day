@@ -28,16 +28,24 @@ arriveTriggers[index] = function (){
     bush16L.animateIn(500);
     bush16R.animateIn(500);
 
-    $("#sliderCont").fadeIn(1000);
+   
 
         //re-enable swiping after 3000 milliseconds
         setTimeout(function(){
-            canSwipe = true;
+            // canSwipe = true;
             updateText();
+            $("#sliderCont").fadeIn(1000);
         }, 3000);
 }
 
 leaveTriggers[index] = function (){
+
+    laptop16.animateOut(0);
+    windmill16L.animateOut(0);
+    windmill16R.animateOut(0);
+    sun16.animateOut(500);
+    bush16L.animateOut(500);
+    bush16R.animateOut(500);
 
     $("#sliderCont").fadeOut(1000);
 

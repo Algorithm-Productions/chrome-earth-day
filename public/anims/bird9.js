@@ -1,4 +1,4 @@
-function Sitting(slide, x, y) {
+function Bird9(slide, x, y) {
 
     this.slide = slide;
     this.container = new PIXI.Container();
@@ -7,20 +7,18 @@ function Sitting(slide, x, y) {
     this.container.x = x;
     this.container.y = y;
 
-    this.xScale = 0.3;
-
     this.frames = [];
 
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 25; i++) {
         const val = i < 10 ? `0${i}` : i;
-        this.frames.push(PIXI.Texture.from(`squirrel2${val}.png`));
+        this.frames.push(PIXI.Texture.from(`bird 9${val}.png`));
     }
 
     this.anim = new PIXI.AnimatedSprite(this.frames);
 
-    // this.anim.x = app.screen.width / 2;
-    this.anim.anchor.set(0.45,0.75);
-    this.anim.scale.set(0);
+    this.anim.x = -width;
+    this.anim.anchor.set(0.47,0.92);
+    this.anim.scale.set(0.4);
     this.anim.animationSpeed = 0.5;
     this.anim.play();
 
@@ -36,22 +34,20 @@ function Sitting(slide, x, y) {
 
     this.animateIn = function(delay) {
       anime({
-        targets: this.anim.scale,
-        x: this.xScale,
-        y: 0.3,
+        targets: this.anim,
+        x: 0,
         easing: 'easeInOutExpo',
-        duration: 500,
+        duration: 2000,
         delay: delay
       });
     };
 
     this.animateOut = function(delay) {
       anime({
-        targets: this.anim.scale,
-        x: 0,
-        y: 0,
+        targets: this.anim,
+        x: width,
         easing: 'easeInOutExpo',
-        duration: 500,
+        duration: 2000,
         delay: delay
       });
     };

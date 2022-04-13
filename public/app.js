@@ -15,13 +15,13 @@ let currSlide = 0;
 let width = window.innerWidth;
 let height = window.innerHeight;
 
-let text = 'Slide: '+ currSlide + '\n Can Swipe: '+canSwipe;
+let text = ''
 const basicText = new PIXI.Text(text);
 basicText.x = 10;
 basicText.y = 100;
 basicText.width = width/4;
 app.stage.addChild(basicText);
-basicText.zIndex= 10;
+
 
 
 //call function for each slide
@@ -79,7 +79,9 @@ function arrive(i){
 }
 
 function updateText(){
-    basicText.text ='Slide: '+ currSlide + '\n Can Swipe: '+canSwipe + '\n Region: '+region + '\n Num Comps: '+ numComps+ '\n Percent Comps: '+percComps +'\n finVal: '+finalValue;;
+    // basicText.text ='Slide: '+ currSlide + '\n Can Swipe: '+canSwipe + '\n Region: '+region + '\n Num Comps: '+ numComps+ '\n Percent Comps: '+percComps +'\n finVal: '+finalValue;
+    basicText.text ='';
+
 }
 
 //user interaction functions
@@ -100,12 +102,11 @@ function submitRegion(){
     if(region !='default'){
         slide();
     }
-    
 }
 
 function submitComps(){
     numComps = document.getElementById('inp').value;
-    if(numComps!=null && numComps!= 'Enter Count'){
+    if(isNan(numComps) == false && numComps!= 'Enter Count'){
         slide();
     } else {
         console.log('please select a region')
@@ -178,3 +179,7 @@ function map(value, x1, y1, x2, y2) {
 function getRandomIntRange (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+function isNum(val){
+    return !isNaN(val)
+  }

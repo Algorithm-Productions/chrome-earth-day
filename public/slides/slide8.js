@@ -3,7 +3,7 @@ index = 8;
 slideFuncs[index] = function (container){
 
     let textN = 'Did you know that end-user computing devices such as laptops, desktops and notebooks generate 1% of global greenhouse gas emissions?';
-    text3 = new Text(container, -100, -height/2+300, textN, 1);
+    text3 = new Text(container, -100, -height/2+300, textN, 1, 300, "right");
     vine2 = new Vine(container, 0, 0, 200, -height/2+400, height/2+200, 100, 4);
     flowerB = new Shape(container, 200, 200, "flower", 1);
     shape8 = new Shape(container, -200, height/2-200, "laptop", 1);

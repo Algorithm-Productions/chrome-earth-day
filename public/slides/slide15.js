@@ -18,10 +18,10 @@ arriveTriggers[index] = function (){
     ring1.animateIn(1000);
     running.animateIn(1000);
 
-    $("#input").fadeIn(1000);
+    
         
         setTimeout(function(){
-            canSwipe = true;
+            $("#input").fadeIn(1000);
             updateText();
         }, 3000);
 

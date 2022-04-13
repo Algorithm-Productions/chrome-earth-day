@@ -1,4 +1,4 @@
-function Text(slide, x, y, text, bg) {
+function Text(slide, x, y, text, bg, width, align) {
       this.slide = slide;
       this.text = text;
 
@@ -9,12 +9,12 @@ function Text(slide, x, y, text, bg) {
       this.container.y = y;
 
       this.style = new PIXI.TextStyle({
-        align: 'right',
+        align: align,
         fontFamily: 'googleSans',
         fill: '#202124',
         fontSize: 42,
         wordWrap: true,
-        wordWrapWidth: 500,
+        wordWrapWidth: width*2-100,
         lineJoin: 'round',
       });
 
@@ -25,12 +25,12 @@ function Text(slide, x, y, text, bg) {
 
       if (bg == 1) {
         this.bg.beginFill(0xCEEAD6);
-        this.bg.moveTo(-300, 0);
-        this.bg.lineTo(200, 0);
-        this.bg.quadraticCurveTo(300, 0, 300, 100);
-        this.bg.lineTo(300, bgHeight);
-        this.bg.lineTo(-200, bgHeight);
-        this.bg.quadraticCurveTo(-300, bgHeight, -300, bgHeight-100);
+        this.bg.moveTo(-width, 0);
+        this.bg.lineTo(width-100, 0);
+        this.bg.quadraticCurveTo(width, 0, width, 100);
+        this.bg.lineTo(width, bgHeight);
+        this.bg.lineTo(-width+100, bgHeight);
+        this.bg.quadraticCurveTo(-width, bgHeight, -width, bgHeight-100);
         this.bg.closePath();
         this.bg.endFill();
       } else if (bg == 2) {
@@ -46,18 +46,18 @@ function Text(slide, x, y, text, bg) {
 
       
 
-      this.text = new PIXI.Text(this.text, this.style);
+      this.textObj = new PIXI.Text(this.text, this.style);
       if (bg == 1) {
-        this.text.anchor.set(0.5,0);
-        this.text.y = 60;
+        this.textObj.anchor.set(0.5,0);
+        this.textObj.y = 60;
       } else if (bg == 2) {
-        this.text.anchor.set(0.5);
+        this.textObj.anchor.set(0.5);
         this.style.align = 'center';
       }
       
       
-      this.text.alpha = 0;
-      this.container.addChild(this.text);
+      this.textObj.alpha = 0;
+      this.container.addChild(this.textObj);
 
 
       
@@ -72,7 +72,7 @@ function Text(slide, x, y, text, bg) {
 
       this.animateIn = function(delay) {
         anime({
-            targets: this.text,
+            targets: this.textObj,
             alpha: 1,
             easing: 'easeInOutExpo',
             duration: 1000,
@@ -90,7 +90,7 @@ function Text(slide, x, y, text, bg) {
 
       this.animateOut = function() {
         anime({
-            targets: this.text,
+            targets: this.textObj,
             alpha: 0,
             easing: 'easeInOutExpo',
             duration: 1000

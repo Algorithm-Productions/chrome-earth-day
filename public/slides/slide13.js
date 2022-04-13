@@ -3,7 +3,7 @@ index = 13;
 slideFuncs[index] = function (container){
 
     let textN13 = 'Let’s ask you a couple of quick questions. You can then find out your estimated savings in greenhouse gas emissions by using Chrome OS*';
-    text13 = new Text(container, -200, -300, textN13, 1);
+    text13 = new Text(container, -200, -300, textN13, 1, 300, "right");
     windmill13 = new Windmill(container, 300, 400, 0.05, 1, 1);
     vine13 = new Vine(container, 0, 0, 100, -200, 300, 100, 4);
     

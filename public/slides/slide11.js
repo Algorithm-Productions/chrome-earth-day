@@ -2,7 +2,7 @@ index = 11;
 
 slideFuncs[index] = function (container){
     let text = 'Lets find out how';
-    text1 = new Text(container, 0, -100, text, 1);
+    text1 = new Text(container, 0, -100, text, 1, 300, "right");
     vine1 = new Vine(container, 0, 0, 300, 0, 450, 100, 4);
     shape11one = new Shape(container, -150, height/4, "puzzle1", 1);
     shape11two = new Shape(container, 50, height/3, "puzzle2", 1);

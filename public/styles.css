@@ -12,11 +12,58 @@ body {
   width: 5.5%;   
 }
 
+.lp{
+	display:flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: center;
+	text-align: center;
+	width:100%;
+	height:100%;
+}
 
+.head{
+	font-family: googleSans;
+	font-size: 70px;
+	color: rgb(97, 97, 97);
+	padding-top:90px;
+}
 
+.heading{
+	font-family: googleSans;
+	color: rgb(97, 97, 97);
+	font-size: 25px;
+}
+.foot{
+	font-family: googleSans;
+	font-size: 28px;
+	color: rgb(97, 97, 97);
+	line-height:45px;
+	padding-top: 50px;
+	font-style: italic;
+}
+
+.lpInps{
+	padding-bottom: 50px;
+}
+.begin{
+	font-family: googleSans;
+	font-size: 50px;
+	color: rgb(39, 39, 39);
+	font-style: italic;
+	padding-bottom:40px;
+}
+
+.green-text{
+	font-family: googleSans;
+	font-size: 50px;
+	color: rgb(72, 141, 76);
+	padding-top:60px;
+	padding-bottom:40px;
+}
 /* progress bar */
 
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Montserrat:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Montserrat:wght@300&display=swap');
 
 * {
 box-sizing: border-box;
@@ -82,7 +129,7 @@ font-size: clamp(1.8rem, 3vw, 2.2rem);
 
 @font-face {
 font-family: googleSans;
-src: url(fonts/GoogleSans-Medium.ttf);
+src: url(fonts/GoogleSans-Regular.ttf)
 }
 
 /* dropdown menu */
@@ -97,7 +144,7 @@ transform: translate(-50%, -50%);
 font-family: googleSans;
 font-size: 50px;
 /* opacity:0; */
-transition: 0.3s all ease-in-out;
+transition: 0.3s all ease-in;
 overflow-y: scroll;
 max-height: 85%;
 }
@@ -112,9 +159,28 @@ max-height: 85%;
 	font-family: googleSans;
 	font-size: 50px;
 	/* opacity:0; */
-	transition: 0.3s all ease-in-out;
-	max-height: 85%;
+	/* transition: 0s all ease-in-out; */
 	}
+
+	.buttonReg{
+		/* position: absolute; */
+		align-self: center;
+		height: 70px;
+		width: 220px;
+		margin: 15px;
+		border-radius: 10px;
+		border: none;
+		color: #444;
+		outline: none;
+		background-color: #cde4f5;
+		white-space: nowrap;
+		font-family: googleSans;
+		font-size: 40px;
+
+
+		margin-left:30%;
+		}
+		
 
 .button{
 height: 70px;
@@ -165,19 +231,19 @@ height: 2em;
 line-height: 2em;
 cursor: pointer;
 position: relative;
-transition: 0.3s color ease-in-out;
+transition: 0s color ease-in-out;
 }
 .dropdown-el label:nth-child(2) {
 margin-top: 2em;
 border-top: 0.06em solid #d9d9d9;
 }
-.dropdown-el input:checked + label {
+/* .dropdown-el input:checked + label {
 display: block;
 border-top: none;
 position: absolute;
 top: 0;
 width: 100%;
-}
+} */
 .dropdown-el input:checked + label:nth-child(2) {
 margin-top: 0;
 position: relative;
@@ -197,7 +263,7 @@ background: #fff;
 border-radius: 0.25em;
 padding: 0;
 box-shadow: rgba(0, 0, 0, 0.1) 3px 3px 5px 0px;
-max-height: 30em;
+max-height: 85%;
 }
 .dropdown-el.expanded label {
 border-top: 0.06em solid #d9d9d9;
@@ -229,11 +295,10 @@ transform: translate(-50%, -50%);
 }
 
 .inputField {
-
 position:relative;
 font-family: googleSans;
 font-size: 50px;
-color: #444;
+color: #4285f4;
 border: none;
 outline: none;
 background-color: #cde4f5;

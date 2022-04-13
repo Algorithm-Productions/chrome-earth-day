@@ -46,8 +46,9 @@
 
     //user data vars
     let companyName;
+    let name;
     let email;
-    let region;
+    let region = 'Choose Region';
     let numComps;
     let percComps;
     let finalValue;
@@ -93,6 +94,7 @@
     <script src="anims/bird5.js"></script>
     <script src="anims/bird6.js"></script>
     <script src="anims/bird7.js"></script>
+    <script src="anims/bird9.js"></script>
     <script src="anims/running.js"></script>
     <script src="anims/sitting.js"></script>
     <script src="anims/globe.js"></script>
@@ -105,31 +107,44 @@
     <script src="anims/bush.js"></script>
     <script src="anims/circle.js"></script>
     <script src="anims/bulb.js"></script>
+    <script src="anims/flower.js"></script>
     
   </head>
   <body>
     <!-- header -->
-    <div style = 'position:absolute'>
+    <div style = 'position:absolute' id = 'prog' hidden>
+      <!-- <h1 class = 'heading' style= 'float:right; margin-right: 40%'>Progress</h1> -->
       <div class = 'header' style = 'display:flex; align-items: center;'>
         <img class = 'logo' src='images/chrome.png'/>
         <h1 class = 'heading'>chrome OS</h1>
-        <h1 style= 'float:right'></h1>
+        
         
         <!-- progress bar -->
-        <div class="container">
-
-          
+        <div class="container" >
           <div class="status-info">
             <div class="bar-wrap">
               <div class="bar"></div>
             </div>
             <span class="percentage"></span>
-
         </div>
         </div>
       </div>
     </div>
 
+    <div id='landing'style = 'position: absolute; width :100%; height:100%' hidden>
+    <div class = 'lp'>
+      <div><img src="images/chrome.png" style = 'width: 180px; height: 180px;'></div>
+      <div class = 'head'>chrome OS</div>
+      <div class = 'head'>Sustainibility Calculator</div>
+      <div class = 'green-text'>Thanks for joining</div>
+      <div class = 'begin'><span>To begin enter your name <br> and company</span></div>
+      <div class = 'nameInp'></div>
+      <div class = 'lpInps'><input id = 'inp2' class = 'inputField' type="text" value="Enter Name" onclick="value=''"></input></div>
+      <div class = 'lpInps'><input id = 'inp3' class = 'inputField' type="text" value="Enter Company" onclick="value=''"></input></div>
+      <div><img src = 'images/greenbar.png' style = 'width: 60%; height: auto'></div>
+      <div class = 'foot'>This green bar will show your progress; the experience<br> should only take under 5 minutes to complete</div>
+    </div>
+  </div>
         <!-- Enter Number of Computers -->
         <!-- <div id="input2" class = 'inputFieldP' hidden>
           <div class = 'box'>
@@ -146,53 +161,46 @@
 
     <!-- region selector -->
     <section id = 'regCont' hidden>
-      <div id="dropdown" class = 'regionSelector'>
+      <div id="dropdown" class = 'regionSelector' >
         <span class="dropdown-el">
-          <input type="radio" name="sortType" value="default" checked="checked" id="sort-relevance" label = 'default'><label for="sort-relevance">Choose Region</label>
-          <input type="radio" name="sortType" value="0.79" id="sort-best"><label for="Austria">Austria</label>
-          <input type="radio" name="sortType" value="0.15313" id="sort-low"><label for="Belgium">Belgium</label>
-          <input type="radio" name="sortType" value="0.43737" id="sort-high"><label for="Bulgaria">Bulgaria</label>
-          <input type="radio" name="sortType" value="0.27315" id="sort-brand"><label for="Croatia">Croatia</label>
-          <input type="radio" name="sortType" value="0.54465" id="sort-name"><label for="Czech Republic">Czech Republic</label>
-          <input type="radio" name="sortType" value="0.15444" id="sort-name"><label for="Denmark">Denmark</label>
-          <input type="radio" name="sortType" value="0.72328" id="sort-name"><label for="Estonia">Estonia</label>
-          <input type="radio" name="sortType" value="0.13622" id="sort-name"><label for="Finland">Finland</label>
-          <input type="radio" name="sortType" value="0.03895" id="sort-name"><label for="France">France</label>
-          <input type="radio" name="sortType" value="0.37862" id="sort-name"><label for="Germany">Germany</label>
-          <input type="radio" name="sortType" value="0.54901" id="sort-name"><label for="Greece">Greece</label>
-          <input type="radio" name="sortType" value="0.25298" id="sort-name"><label for="Hungary">Hungary</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="Iceland">Iceland</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
-
+          <input type="radio" value="default" id='Choose-Region' checked="checked"><label id='choose' for="Choose-Region">Choose Region</label>
+          <input type="radio" value="0.79" id ='Austria'><label for="Austria">Austria</label>
+          <input type="radio" value="0.15313" id ='Belgium'><label for="Belgium">Belgium</label>
+          <input type="radio" value="0.43737" id ='Bulgaria'><label for="Bulgaria">Bulgaria</label>
+          <input type="radio" value="0.27315" id ='Croatia'><label for="Croatia">Croatia</label>
+          <input type="radio"  value="0.54465" id ='Czech-Republic'><label for="Czech-Republic">Czech Republic</label>
+          <input type="radio"  value="0.15444" id ='Denmark'><label for="Denmark">Denmark</label>
+          <input type="radio"  value="0.72328" id ='Estonia'><label for="Estonia">Estonia</label>
+          <input type="radio"  value="0.13622" id ='Finland'><label for="Finland">Finland</label>
+          <input type="radio"  value="0.03895" id ='France'><label for="France">France</label>
+          <input type="radio"  value="0.37862" id ='Germany'><label for="Germany">Germany</label>
+          <input type="radio"  value="0.54901" id ='Greece'><label for="Greece">Greece</label>
+          <input type="radio"  value="0.25298" id ='Hungary'><label for="Hungary">Hungary</label>
+          <input type="radio"  value="0.00011" id ='Iceland'><label for="Iceland">Iceland</label>
+          <input type="radio"  value="0.34804" id ='Ireland' ><label for="Ireland">Ireland</label>
+          <input type="radio"  value="0.33854" id ='Italy' ><label for="Italy">Italy</label>
+          <input type="radio"  value="0.30333" id ='Latvia' ><label for="Latvia">Latvia</label>
+          <input type="radio"  value="0.14913" id ='Lithuania' ><label for="Lithuania">Lithuania</label>
+          <input type="radio"  value="0.13939" id ='Luxembourg' ><label for="Luxembourg">Luxembourg</label>
+          <input type="radio"  value="0.37060" id ='Malta' ><label for="Malta">Malta</label>
+          <input type="radio"  value="0.45207" id ='Netherlands' ><label for="Netherlands">Netherlands</label>
+          <input type="radio"  value="0.01118" id ='Norway' ><label for="Norway">Norway</label>
+          <input type="radio"  value="0.79107" id ='Poland' ><label for="Poland">Poland</label>
+          <input type="radio"  value="0.67729" id ='Cyprus' ><label for="Cyprus">Cyprus</label>
+          <input type="radio"  value="0.31011" id ='Romania' ><label for="Romania">Romania</label>
+          <input type="radio"  value="0.15110" id ='Slovakia' ><label for="Slovakia">Slovakia</label>
+          <input type="radio"  value="0.24385" id ='Slovenia' ><label for="Slovenia">Slovenia</label>
+          <input type="radio"  value="0.22026" id ='Spain' ><label for="Spain">Spain</label>
+          <input type="radio"  value="0.01189" id ='Sweden' ><label for="Sweden">Sweden</label>
+          <input type="radio"  value="0.01182" id ='Switzerland' ><label for="Switzerland">Switzerland</label>
+          <input type="radio"  value="0.48100" id ='Turkey' ><label for="Turkey">Turkey</label>
+          <input type="radio"  value="0.21233" id ='United-Kingdom' ><label for="United-Kingdom">United Kingdom</label>
         </span>
-        
+        <button onclick="submitRegion();" class="buttonReg">Submit</button>
       </div>
-      <!-- <button onclick="submitRegion();" class="buttonComp">Submit</button> -->
+
+      
+      
     </section>
 
         <!-- Enter Number of Computers -->

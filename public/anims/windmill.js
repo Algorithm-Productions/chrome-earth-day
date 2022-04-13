@@ -55,7 +55,7 @@ function Windmill(slide, x, y, speed, colour, scale) {
 
       this.animateOut = function() {
         let anim = anime.timeline({
-          easing: 'easeInOutQuart',
+          easing: 'easeInOutQuart', //:)
           duration: 1000
         });
 

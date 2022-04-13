@@ -18,8 +18,11 @@ arriveTriggers[index] = function (){
     circle14.animateIn(1000);
 
     
-
-    $("#regCont").fadeIn(1000);
+    setTimeout(function(){
+        $("#regCont").fadeIn(1000);
+        updateText();
+    }, 3000);
+    
     
 }
 

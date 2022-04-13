@@ -3,7 +3,7 @@ index = 9;
 
 slideFuncs[index] = function (container){
     let text = 'Imagine if every device used less energy \n and could even have a second life';
-    text2 = new Text(container, 0, 0, text, 2);
+    text2 = new Text(container, 0, 0, text, 2, 300, "center");
 
     cloud9 = new Shape(container, width/2, -height/4, "cloud", 0.6);
     globe1 = new Globe(container, 0, 0, true);

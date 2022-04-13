@@ -10,7 +10,7 @@ arriveTriggers[index] = function (){
     shape3.animateIn(0);
     bird4.animateIn(0);
     
-
+    $("#prog").fadeIn(1000);
     //re-enable swiping
     setTimeout(function(){
         updateText();
