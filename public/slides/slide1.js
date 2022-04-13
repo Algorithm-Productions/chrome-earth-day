@@ -13,8 +13,8 @@ arriveTriggers[index] = function (){
 
     //re-enable swiping
     setTimeout(function(){
-        canSwipe = true;
         updateText();
+        slide();
     }, 3000);
 }
 

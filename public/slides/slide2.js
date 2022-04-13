@@ -29,9 +29,9 @@ arriveTriggers[index] = function (){
 
         //re-enable swiping
         setTimeout(function(){
-            canSwipe = true;
             updateText();
-        }, 3000);
+            slide();
+        }, 4000);
 }
 
 leaveTriggers[index] = function (){

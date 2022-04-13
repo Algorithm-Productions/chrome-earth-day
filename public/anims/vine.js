@@ -105,6 +105,7 @@ function Vine(slide, x, y, px, p1y, p2y, radius, stroke) {
       };
 
       this.animateIn = function(delay) {
+
         var animIn = anime.timeline({
           easing: 'linear',
           duration: 300,

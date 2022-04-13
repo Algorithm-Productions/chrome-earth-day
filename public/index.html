@@ -45,10 +45,13 @@
     let canSwipe = false;
 
     //user data vars
+    let companyName;
+    let email;
     let region;
     let numComps;
     let percComps;
-    let email;
+    let finalValue;
+    
 
     //results vars
     let ghgSaved;
@@ -84,10 +87,14 @@
     <script src="anims/plant.js"></script>
     <script src="anims/windmill.js"></script>
     <script src="anims/bird1.js"></script>
+    <script src="anims/bird2.js"></script>
     <script src="anims/bird3.js"></script>
     <script src="anims/bird4.js"></script>
     <script src="anims/bird5.js"></script>
+    <script src="anims/bird6.js"></script>
+    <script src="anims/bird7.js"></script>
     <script src="anims/running.js"></script>
+    <script src="anims/sitting.js"></script>
     <script src="anims/globe.js"></script>
     <script src="anims/vine.js"></script>
     <script src="anims/text.js"></script>
@@ -96,6 +103,8 @@
     <script src="anims/sun.js"></script>
     <script src="anims/icon.js"></script>
     <script src="anims/bush.js"></script>
+    <script src="anims/circle.js"></script>
+    <script src="anims/bulb.js"></script>
     
   </head>
   <body>
@@ -104,57 +113,117 @@
       <div class = 'header' style = 'display:flex; align-items: center;'>
         <img class = 'logo' src='images/chrome.png'/>
         <h1 class = 'heading'>chrome OS</h1>
+        <h1 style= 'float:right'></h1>
         
         <!-- progress bar -->
         <div class="container">
+
+          
           <div class="status-info">
             <div class="bar-wrap">
               <div class="bar"></div>
             </div>
             <span class="percentage"></span>
-          </div>
+
+        </div>
         </div>
       </div>
     </div>
 
+        <!-- Enter Number of Computers -->
+        <!-- <div id="input2" class = 'inputFieldP' hidden>
+          <div class = 'box'>
+          <input id = 'inp2' class = 'inputField'type="number" value="Enter Name" onclick="value=''"></input>
+          </div>
+        </div>
+                   
+        <div id="input3" class = 'inputFieldP' hidden>
+          <div class = 'box'>
+          <input id = 'inp3' name="numOnly" class = 'inputField' type='tel' type="number" value="Enter Email" onclick="value=''"></input>
+          <button onclick="submitComps();" class="buttonComp">Submit</button>
+          </div>
+        </div> -->
+
     <!-- region selector -->
-    <section>
-      <div id="dropdown" class = 'regionSelector' hidden>
+    <section id = 'regCont' hidden>
+      <div id="dropdown" class = 'regionSelector'>
         <span class="dropdown-el">
-          <input type="radio" name="sortType" value="Choose Region" checked="checked" id="sort-relevance"><label for="sort-relevance">Choose Region</label>
-          <input type="radio" name="sortType" value="Great Britain" id="sort-best"><label for="sort-best">Great Britain</label>
-          <input type="radio" name="sortType" value="PriceIncreasing" id="sort-low"><label for="sort-low">USA</label>
-          <input type="radio" name="sortType" value="PriceDecreasing" id="sort-high"><label for="sort-high">Ireland</label>
-          <input type="radio" name="sortType" value="ProductBrand" id="sort-brand"><label for="sort-brand">France</label>
-          <input type="radio" name="sortType" value="ProductName" id="sort-name"><label for="sort-name">Germany</label>
+          <input type="radio" name="sortType" value="default" checked="checked" id="sort-relevance" label = 'default'><label for="sort-relevance">Choose Region</label>
+          <input type="radio" name="sortType" value="0.79" id="sort-best"><label for="Austria">Austria</label>
+          <input type="radio" name="sortType" value="0.15313" id="sort-low"><label for="Belgium">Belgium</label>
+          <input type="radio" name="sortType" value="0.43737" id="sort-high"><label for="Bulgaria">Bulgaria</label>
+          <input type="radio" name="sortType" value="0.27315" id="sort-brand"><label for="Croatia">Croatia</label>
+          <input type="radio" name="sortType" value="0.54465" id="sort-name"><label for="Czech Republic">Czech Republic</label>
+          <input type="radio" name="sortType" value="0.15444" id="sort-name"><label for="Denmark">Denmark</label>
+          <input type="radio" name="sortType" value="0.72328" id="sort-name"><label for="Estonia">Estonia</label>
+          <input type="radio" name="sortType" value="0.13622" id="sort-name"><label for="Finland">Finland</label>
+          <input type="radio" name="sortType" value="0.03895" id="sort-name"><label for="France">France</label>
+          <input type="radio" name="sortType" value="0.37862" id="sort-name"><label for="Germany">Germany</label>
+          <input type="radio" name="sortType" value="0.54901" id="sort-name"><label for="Greece">Greece</label>
+          <input type="radio" name="sortType" value="0.25298" id="sort-name"><label for="Hungary">Hungary</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="Iceland">Iceland</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+          <input type="radio" name="sortType" value="0.111" id="sort-name"><label for="sort-name">Other</label>
+
         </span>
-        <button onclick="submitRegion();" class="button">Submit</button>
+        
       </div>
+      <!-- <button onclick="submitRegion();" class="buttonComp">Submit</button> -->
     </section>
 
         <!-- Enter Number of Computers -->
         <div id="input" class = 'inputFieldP' hidden>
           <div class = 'box'>
-          <input id = 'inp' name="numOnly" class = 'inputField' type='tel' type="number" oninput="return onlynum()" value="Enter Count"></input>
+          <input id = 'inp' name="numOnly" class = 'inputField' type='tel' type="number" oninput="return onlynum()" value="Enter Count" onclick="value=''"></input>
           <button onclick="submitComps();" class="buttonComp">Submit</button>
           </div>
         </div>
 
         <!-- slider selecter -->
-        <section id="slider" class="range-slider-wrapper" hidden>
+        <div class = 'sc' id='sliderCont'hidden>
+          <div class ='te'>
+        <div id="slider" class="range-slider-wrapper">
           <div class="range-slider-container">
             <div class="range-slider-block">
               <div id="range-sliders" class="range-sliders">
                 <div class="range-slider-group range-slider-group-green">
 
                   <input type="range" min="0" max="100" value="50" data-color="rgba(211,233,215)" class="range-slider range-slider-green" id="range-slider-green" />
-                  <input  type='text' min="0" max="100" value="50" class="input-slider input-slider-green" id="input-slider-green" disabled ><div class = 'percent' disabled>%</div></input>
+                  <input  type='text' min="0" max="100" value="50" class="input-slider input-slider-green" id="input-slider-green" ><div class = 'percent'>%</div></input>
                   
                 </div>
               </div>
             </div>
           </div>
-        </section>
+          
+        </div>
+        <button onclick="submitPerc();" class="buttonPerc">Submit</button>
+          </div>
+      </div>
 
     <!-- slide button -->
     <!-- <div style = 'position:absolute; z-index: 30;'>

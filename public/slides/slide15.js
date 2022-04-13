@@ -4,21 +4,35 @@ index = 15;
 
 slideFuncs[index] = function (container){
 
-   
+    running = new Running(container, 50, 300);
+    ring1 = new Ring(container, 0, 0, 400, 12, 0.01);
+
+    app.ticker.add((delta) => {
+        ring1.update(delta);
+    });
 
 }
 
 arriveTriggers[index] = function (){
-        //re-enable swiping after 3000 milliseconds
+    //re-enable swiping after 3000 milliseconds
+    ring1.animateIn(1000);
+    running.animateIn(1000);
 
-        $("#slider").fadeIn(1000);
-
+    $("#input").fadeIn(1000);
+        
+        setTimeout(function(){
+            canSwipe = true;
+            updateText();
+        }, 3000);
 
 }
 
 leaveTriggers[index] = function (){
+    ring1.animateOut(0);
+    running.animateOut(0);
 
-    $("#slider").fadeOut(1000);
+    $("#input").fadeOut(1000);
+    
 
     arrive(index+1);
 }

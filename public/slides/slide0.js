@@ -14,6 +14,10 @@ slideFuncs[index] = function (container){
 
 	arriveTriggers[0]();
 
+    // setTimeout(function(){
+    //     arriveTriggers[16]();
+    // }, 1000);
+
 
 }
 

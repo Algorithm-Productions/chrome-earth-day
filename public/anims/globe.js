@@ -24,6 +24,10 @@ function Globe(slide, x, y, loop) {
         this.bFrames.push(PIXI.Texture.from(`bubbles${val}.png`));
     }
 
+    this.graphics = new PIXI.Graphics();
+    this.graphics.lineStyle(60, 0xE8F0FE, 1);
+    this.graphics.alpha = 0;
+
     this.anim = new PIXI.AnimatedSprite(this.frames);
     this.bubbles = new PIXI.AnimatedSprite(this.bFrames);
 
@@ -34,12 +38,10 @@ function Globe(slide, x, y, loop) {
     this.anim.loop = false;
     // this.anim.play();
 
+    // this.bubbles.zIndex = 10;
     
 
-    // const graphics = new PIXI.Graphics();
-    // graphics.lineStyle(10, 0xFFBD01, 1);
-    // graphics.drawCircle(0, 0, 275);
-    // this.container.addChild(graphics);
+    
 
     if (loop) {
         this.anim.onComplete = function () {
@@ -48,16 +50,21 @@ function Globe(slide, x, y, loop) {
             this.play();
             // console.log(this);
         };
+  
+        this.graphics.drawCircle(0, 0, 330);
     } else {
         this.bubbles.anchor.set(0.538, 0.494);
         this.bubbles.scale.set(0);
         this.bubbles.animationSpeed = 0.5;
         this.bubbles.loop = false;
         // this.bubbles.play();
+        this.graphics.drawCircle(0, 0, 290);
     }
 
+    this.container.addChild(this.graphics);
     this.container.addChild(this.anim);
     this.container.addChild(this.bubbles);
+    
 
     this.update = function(delta) {
     };
@@ -90,6 +97,14 @@ function Globe(slide, x, y, loop) {
                 }
             }
         });
+
+        anime({
+            targets: this.graphics,
+            alpha: 1,
+            easing: 'easeInOutExpo',
+            duration: 1000,
+            delay: delay
+        });
     };
 
     this.animateOut = function(delay) {
@@ -110,6 +125,14 @@ function Globe(slide, x, y, loop) {
         duration: 1000,
         delay: delay
       });
+
+      anime({
+        targets: this.graphics,
+        alpha: 0,
+        easing: 'easeInOutExpo',
+        duration: 1000,
+        delay: delay
+    });
     };
 
   }

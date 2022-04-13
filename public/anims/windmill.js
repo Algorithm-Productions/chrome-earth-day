@@ -1,4 +1,4 @@
-function Windmill(slide, x, y, speed, colour) {
+function Windmill(slide, x, y, speed, colour, scale) {
       this.slide = slide;
       this.speed = speed;
 
@@ -7,7 +7,7 @@ function Windmill(slide, x, y, speed, colour) {
 
       this.container.x = x;
       this.container.y = y;
-      this.container.scale.set(1);
+      this.container.scale.set(scale);
 
       this.pole = PIXI.Sprite.from('images/wmPole.png');
       this.container.addChild(this.pole);

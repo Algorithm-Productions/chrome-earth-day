@@ -41,6 +41,60 @@ function Shape(slide, x, y, shape, scale) {
             loop: true,
             duration: 20000
           });
+      } else if (shape == "laptop") {
+
+        this.shape = PIXI.Sprite.from('images/laptop.png');
+
+      } else if (shape == "box") {
+
+        this.shape = PIXI.Sprite.from('images/box.png');
+        anime({
+          targets: this.shape,
+          x: 50,
+          easing: 'easeInOutQuad',
+          direction: 'alternate',
+          loop: true,
+          duration: 4000
+        });
+
+      } else if (shape == "puzzle1") {
+
+        this.shape = PIXI.Sprite.from('images/puzzle1.png');
+        anime({
+          targets: this.shape,
+          x: -50,
+          y: -50,
+          easing: 'easeInOutQuad',
+          direction: 'alternate',
+          loop: true,
+          duration: 4000
+        });
+
+      } else if (shape == "puzzle2") {
+
+        this.shape = PIXI.Sprite.from('images/puzzle2.png');
+        anime({
+          targets: this.shape,
+          x: 50,
+          y: 50,
+          easing: 'easeInOutQuad',
+          direction: 'alternate',
+          loop: true,
+          duration: 4000
+        });
+
+      } else if (shape == "cloud") {
+
+        this.shape = PIXI.Sprite.from('images/cloud.png');
+        anime({
+          targets: this.shape,
+          x: -width,
+          easing: 'easeInOutQuad',
+          direction: 'alternate',
+          loop: true,
+          duration: 20000
+        });
+
       }
 
       this.container.addChild(this.shape);

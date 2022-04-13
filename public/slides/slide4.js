@@ -27,9 +27,9 @@ arriveTriggers[index] = function (){
 
         //re-enable swiping after 3000 milliseconds
         setTimeout(function(){
-            canSwipe = true;
             updateText();
-        }, 3000);
+            slide();
+        }, 4000);
 }
 
 leaveTriggers[index] = function (){

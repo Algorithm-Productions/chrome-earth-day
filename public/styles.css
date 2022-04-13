@@ -2,6 +2,8 @@ body {
   margin: 0 !important;
   padding: 0 !important;
   overflow: hidden;
+  font-family: googleSans;
+  -webkit-tap-highlight-color: transparent
 }
 
 .logo{
@@ -23,19 +25,12 @@ box-sizing: border-box;
 :root {
 font-size: 62.5%;
 
---bar-color: #38b000;
+--bar-color: rgb(72, 141, 76);
 --body-color: #222;
 --text-color: white;
---bar-wrap-back-color: rgb(202, 202, 202);
+--bar-wrap-back-color: rgba(211,233,215);
 }
 
-body {
-margin: 0;
-
-font-family: 'Fira Sans', sans-serif;
-
-/* background-color: var(--body-color); */
-}
 
 .container {
 width : 100%;
@@ -47,12 +42,16 @@ z-index: 20;
 }
 
 .bar-wrap {
-padding: 6px;
 margin-top: 0px;
-
 border-radius: 100px;
-
-background-color: var(--bar-wrap-back-color);
+/* background-color: var(--bar-wrap-back-color); */
+background: repeating-linear-gradient(
+  90deg,
+  rgb(189, 219, 195),
+  rgb(189, 219, 195) 50px,
+  rgba(211,233,215) 50px,
+  rgba(211,233,215) 100px
+);
 }
 
 .bar {
@@ -63,7 +62,7 @@ transition: width .5s ease-out;
 
 background-color: var(--bar-color);
 border-radius: 100px;
-box-shadow: inset -1px -1px 10px rgb(0 0 0 / .5);
+/* box-shadow: inset -1px -1px 10px rgb(0 0 0 / .5); */
 }
 
 .line {
@@ -92,13 +91,30 @@ src: url(fonts/GoogleSans-Medium.ttf);
 position:absolute;
 z-index:100;
 left: 52%;
-top: 50%;
+top: 80%;
 transform: translate(-50%, -50%);
 /* padding: 10px; */
 font-family: googleSans;
 font-size: 50px;
 /* opacity:0; */
+transition: 0.3s all ease-in-out;
+overflow-y: scroll;
+max-height: 85%;
 }
+
+.regionSelector.expanded {
+	position:absolute;
+	z-index:100;
+	left: 52%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	/* padding: 10px; */
+	font-family: googleSans;
+	font-size: 50px;
+	/* opacity:0; */
+	transition: 0.3s all ease-in-out;
+	max-height: 85%;
+	}
 
 .button{
 height: 70px;
@@ -246,18 +262,54 @@ left:45%;
 transform: translate(-50%, -50%);
 }
 
+
+
 /* slider */
+
+.sc{
+	top:50%;
+	left:50%;
+	-ms-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
+position: absolute;
+
+
+display: none;
+}
+
+.te{
+display: flex; 
+justify-content: center;
+align-items:center;
+flex-direction: column;
+}
+
+.buttonPerc{
+	align-self: center;
+	height: 70px;
+	width: 220px;
+	margin-top: 0px;
+	border-radius: 10px;
+	border: none;
+	color: #444;
+	outline: none;
+	background-color: #cde4f5;
+	white-space: nowrap;
+	font-family: googleSans;
+	font-size: 40px;
+	padding:0px;
+	/* position: absolute;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	top: 54%;
+	left: 47%; */
+	}
 
 /**
  * Range Slider Container
  */
  .range-slider-container {
-	padding: 2rem;
-  position:absolute;
-  z-index:100;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+	z-index:100;
 }
 
 /**
@@ -267,7 +319,6 @@ transform: translate(-50%, -50%);
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
 }
 
 /**
@@ -276,7 +327,6 @@ transform: translate(-50%, -50%);
 .range-sliders {
 	width: 100%;
 	background-color: transparent;
-	padding: 1.5rem;
 
 }
 
@@ -291,9 +341,7 @@ transform: translate(-50%, -50%);
 	height: 90px;
 	outline: none;
 	-webkit-appearance: none;
-  outline: 1px solid;
-  border: 4px;
-  color:black;
+	box-shadow: 0px 0px 0px 1px rgb(0, 0, 0);
 }
 
 .range-sliders input[type=range]:focus {
@@ -302,7 +350,7 @@ transform: translate(-50%, -50%);
 
 .range-sliders input[type=range]::-webkit-slider-runnable-track {
 	width: 100%;
-	height: 1px;
+	height: 0px;
 	cursor: pointer;
 	box-shadow: none;
 	background-color: rgba(255,255,255);
@@ -320,21 +368,25 @@ transform: translate(-50%, -50%);
 
 .range-sliders input[type=range]::-webkit-slider-thumb {
 	box-shadow: none;
-	height: 91px;
-	width: 12px;
+	height: 90px;
+	width: 35px;
 	border-color: transparent;
-	background-color: rgba(88, 168, 92);
+	padding-right: 70px;
+	background: linear-gradient(90deg, rgba(211,233,215) 0%, rgba(211,233,215) 20%, rgba(88,168,92,1) 20%, rgba(88,168,92,1) 80%, rgba(255,255,255) 80%);
 	cursor: ew-resize;
 	-webkit-appearance: none;
-  margin-top: -45px;
+  	margin-top: -45px;
+	border-radius: 14px;
+	
 }
 
 .range-sliders input[type=range]::-moz-range-thumb {
 	box-shadow: none;
 	height: 91px;
-	width: 12px;
+	width: 35px;
+	
 	border-color: transparent;
-	background-color: rgba(88, 168, 92);
+	background: linear-gradient(90deg, rgba(2,0,36,0) 0%, rgba(8,7,106,0) 20%, rgba(88,168,92,1) 20%, rgba(88,168,92,1) 80%, rgba(9,121,20,0) 80%);
 	cursor: ew-resize;
 	-webkit-appearance: none;
   margin-top: -45px;
@@ -357,19 +409,17 @@ transform: translate(-50%, -50%);
 }
 
 .range-sliders input[type=range].range-slider-green::-webkit-slider-thumb {
-	background-color: rgba(88, 168, 92);;
+	/* background-color: rgba(88, 168, 92); */
 }
 
 .range-sliders input[type=range].range-slider-green::-moz-range-thumb {
-	background-color: rgba(88, 168, 92);;
+	/* background-color: rgba(88, 168, 92); */
 }
 
 .range-sliders .input-slider {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-	padding-left: 20px;
-	-moz-appearance: textfield;
+
+margin-left: -300px;
+-moz-appearance: textfield;
   font-family: 'googleSans';
   border: none;
   position: absolute;
@@ -377,7 +427,8 @@ transform: translate(-50%, -50%);
   font-size: 50px;
   width:100%;
   overflow: visible;
-  color: rgba(88, 168, 92);;
+  color: rgb(68, 129, 72);
+  pointer-events: none;
 }
 .percent {
   display: flex;
@@ -389,8 +440,8 @@ transform: translate(-50%, -50%);
   background-color: transparent;
   font-size: 50px;
   overflow: visible;
-  color: rgba(88, 168, 92);
-  margin-left: 120px;
+  color: rgb(68, 129, 72);
+  margin-left: -230px;
   pointer-events: none;
   background: none !important;
 }
@@ -404,14 +455,15 @@ transform: translate(-50%, -50%);
 .range-sliders .range-slider-group {
 	display: flex;
 	flex-wrap: wrap;
-	align-items: center;
-	justify-content: space-between;
+	align-items: center; 
+	justify-content: center;
+	text-align: left;
 }
 
 .range-sliders .range-slider-group .range-label {
 	width: 100%;
 	font-size: 1rem;
-	margin-bottom: 0.5rem;
+	right:80%
 }
 
 .range-sliders .range-slider-group .range-slider {

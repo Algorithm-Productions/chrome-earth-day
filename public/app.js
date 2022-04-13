@@ -36,6 +36,7 @@ app.loader
     .add('images/spritesheet/bird8-0.json')
     .add('images/spritesheet/bird9-0.json')
     .add('images/spritesheet/running-0.json')
+    .add('images/spritesheet/sitting-0.json')
     .add('images/spritesheet/globe-0.json')
     .add('images/spritesheet/bubbles-0.json')
     .load(onAssetsLoaded);
@@ -78,29 +79,43 @@ function arrive(i){
 }
 
 function updateText(){
-    basicText.text ='Slide: '+ currSlide + '\n Can Swipe: '+canSwipe + '\n Region: '+region + '\n Num Comps: '+ numComps+ '\n Percent Comps: '+percComps;
+    basicText.text ='Slide: '+ currSlide + '\n Can Swipe: '+canSwipe + '\n Region: '+region + '\n Num Comps: '+ numComps+ '\n Percent Comps: '+percComps +'\n finVal: '+finalValue;;
 }
 
 //user interaction functions
 
 function submitRegion(){
-    if(region!=null && region!= 'Choose Region'){
-        slide();
-    } else {
-        console.log('please select a region')
+    var inputs, index, val;
+
+    inputs = document.getElementsByTagName('input');
+    for (index = 0; index < inputs.length; ++index) {
+        if(inputs[index].checked == true){
+            region=inputs[index].value;
+        } else {
+            console.log('please choose a region');
+        }
     }
+    updateText();
+
+    if(region !='default'){
+        slide();
+    }
+    
 }
 
 function submitComps(){
-
     numComps = document.getElementById('inp').value;
     if(numComps!=null && numComps!= 'Enter Count'){
         slide();
     } else {
         console.log('please select a region')
     }
+}
 
-    
+function submitPerc(){
+    percComps = document.getElementById('input-slider-green').value;
+    slide();
+    finalValue = calculate(region, numComps, percComps);
 }
 
 
@@ -119,6 +134,29 @@ document.addEventListener('swiped-left', function(e) {
 });
 
 // logic
+
+function calculate(b2, b3, b4){
+
+    // country value, number of computers, percentage of computers
+
+    let c3 = (b3/100)*35;
+    let d3 = (b3/100)*65;
+    let c4 = (c3/100)*b4;
+    let d4 = (d3/100)*b4;
+
+    let c5 = 23.52;
+    let c6 = 12.88;
+    let c7 = 22.01;
+    let c8 = 11.75;
+    let c9 = 230;
+    let c10 = 256;
+    let c11 = 19;
+
+    let value1 = (((c4/2)*(c5-c6)+(c4/2)*((c5/100)*c11))+((d4/2)*(c7-c8)+(d4/2)*((c7/100)*c11)))*b2;
+    let value2 = ((c4/2)*c9)+((d4/2)*c10);
+
+    return parseInt(value1+value2);
+}
 
 function degrees_to_radians(degrees) {
     var pi = Math.PI;

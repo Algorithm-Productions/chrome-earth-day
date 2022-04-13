@@ -1,32 +1,25 @@
 index = 6;
 
 slideFuncs[index] = function (container){
-    windmillL = new Windmill(container, -width/2+200, height/2, 0.05, 1);
-    windmillR = new Windmill(container, width/2-200, height/2, 0.05, 2);
-    sunM = new Sun(container, 0, 0, width/2-50);
 
-    app.ticker.add((delta) => {
-  		windmillL.update(delta);
-        windmillR.update(delta);
-	});
+bush6 = new Bush(container, 200, height/2, 1, 2);
+bird6 = new Bird6(container, 200, height/2, 50, -330, 0.4);
+
 }
 
 arriveTriggers[index] = function (){
-    windmillL.animateIn(0);
-    windmillR.animateIn(0);
-    sunM.animateIn(0);
-
+    
+    bush6.animateIn(500);
+    bird6.animateIn(1000);
+    
         //re-enable swiping after 3000 milliseconds
         setTimeout(function(){
-            canSwipe = true;
+            slide();
             updateText();
         }, 3000);
 }
 
 leaveTriggers[index] = function (){
-    windmillL.animateOut();
-    windmillR.animateOut();
-    sunM.animateOut(0);
 
     arrive(index+1);
 }
