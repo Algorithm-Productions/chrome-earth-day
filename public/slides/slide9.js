@@ -2,7 +2,13 @@ index = 9;
 
 
 slideFuncs[index] = function (container){
-    let text = 'Imagine if every device used less energy \n and could even have a second life';
+    if (lang == 'de') {
+        text = 'Was, wenn jedes Gerät weniger Strom verbrauchen \n würde und sogar ein zweites Leben bekäme?';
+    } else if (lang == 'fr') {
+        text = 'Et si chaque appareil était moins énergivore \n et pouvait même avoir une seconde vie ?';
+    } else {
+        text = 'Imagine if every device used less energy \n and could even have a second life';
+    }
     text2 = new Text(container, 0, 0, text, 2, 300, "center");
 
     cloud9 = new Shape(container, width/2, -height/4, "cloud", 0.6);

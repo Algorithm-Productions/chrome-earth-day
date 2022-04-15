@@ -95,6 +95,14 @@ function Shape(slide, x, y, shape, scale) {
           duration: 20000
         });
 
+      } else if (shape == "chrome") {
+
+        this.shape = PIXI.Sprite.from('images/chrome.png');
+
+      } else if (shape == "gauge") {
+
+        this.shape = PIXI.Sprite.from('images/gauge.png');
+
       }
 
       this.container.addChild(this.shape);

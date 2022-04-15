@@ -1,7 +1,7 @@
 const bar = document.querySelector(".bar");
 const total = 100;
 let increment = total/numSlides;
-let solved = 0;
+let solved = increment;
 
 const ruleOfThree = (num1, num2) => {
   const proportion = (num2 * 100) / num1;

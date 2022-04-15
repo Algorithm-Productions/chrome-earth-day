@@ -71,7 +71,7 @@ function Circle(slide, x, y, radius, type) {
                 x: 1,
                 y: 1,
                 easing: 'easeInOutExpo',
-                duration: 3000,
+                duration: 1000,
                 delay: (delay*2)+i*200
             });
         })
@@ -93,7 +93,7 @@ function Circle(slide, x, y, radius, type) {
                 x: 0,
                 y: 0,
                 easing: 'easeInOutExpo',
-                duration: 3000,
+                duration: 1000,
                 delay: i*200
             });
         })

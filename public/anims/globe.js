@@ -21,7 +21,7 @@ function Globe(slide, x, y, loop) {
             val = i;
         }
         this.frames.push(PIXI.Texture.from(`globe${val}.png`));
-        this.bFrames.push(PIXI.Texture.from(`bubbles${val}.png`));
+        this.bFrames.push(PIXI.Texture.from(`bubbletwo${val}.png`));
     }
 
     this.graphics = new PIXI.Graphics();

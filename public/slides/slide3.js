@@ -27,7 +27,7 @@ arriveTriggers[index] = function (){
         setTimeout(function(){
             updateText();
             slide();
-        }, 5000);
+        }, 4000);
 }
 
 leaveTriggers[index] = function (){

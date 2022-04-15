@@ -1,4 +1,6 @@
 
+var socket = io();
+
 //create app and resize to fit device
 let app = new PIXI.Application({ 
     resizeTo: window,
@@ -14,7 +16,9 @@ let currSlide = 0;
 
 let width = window.innerWidth;
 let height = window.innerHeight;
-
+if(isDesktop){
+    $("#desktop").fadeIn(1000);
+} else {
 let text = ''
 const basicText = new PIXI.Text(text);
 basicText.x = 10;
@@ -38,7 +42,7 @@ app.loader
     .add('images/spritesheet/running-0.json')
     .add('images/spritesheet/sitting-0.json')
     .add('images/spritesheet/globe-0.json')
-    .add('images/spritesheet/bubbles-0.json')
+    .add('images/spritesheet/bubbletwo.json')
     .load(onAssetsLoaded);
 
     function onAssetsLoaded() {
@@ -55,9 +59,7 @@ app.loader
                 slideFuncs[i](container);
             }
         }
-
         buildContainers();
-
     }
 
 
@@ -80,8 +82,7 @@ function arrive(i){
 
 function updateText(){
     // basicText.text ='Slide: '+ currSlide + '\n Can Swipe: '+canSwipe + '\n Region: '+region + '\n Num Comps: '+ numComps+ '\n Percent Comps: '+percComps +'\n finVal: '+finalValue;
-    basicText.text ='';
-
+    // basicText.text ='';
 }
 
 //user interaction functions
@@ -94,29 +95,61 @@ function submitRegion(){
         if(inputs[index].checked == true){
             region=inputs[index].value;
         } else {
-            console.log('please choose a region');
+            console.log('please choose a country');
         }
     }
     updateText();
 
     if(region !='default'){
+        document.getElementById('b2').disabled = true;
         slide();
+    }
+}
+
+function submitEmail(){
+    if(ValidateEmail(document.getElementById('inpE').value) == true && document.getElementById('rad').checked){
+        //store email
+        email = document.getElementById('inpE').value;
+        let data = [userName, email, companyName];
+        socket.emit("store", data);
+        document.getElementById('b5').disabled = true;
+        slide();
+    }
+
+    function ValidateEmail(input) {
+        var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        if (input.match(validRegex)) {
+          return true;
+        } else {
+          return false;
+        }
     }
 }
 
 function submitComps(){
     numComps = document.getElementById('inp').value;
-    if(isNan(numComps) == false && numComps!= 'Enter Count'){
+    if(isNaN(numComps) == false && numComps!= 'Enter Count' && numComps!= 'Entrez le nombre' && numComps!= 'Anzahl eingeben'){
+        document.getElementById('b3').disabled = true;
         slide();
     } else {
-        console.log('please select a region')
+        console.log('please enter a value');
     }
 }
 
 function submitPerc(){
     percComps = document.getElementById('input-slider-green').value;
+    document.getElementById('b4').disabled = true;
     slide();
     finalValue = calculate(region, numComps, percComps);
+}
+
+function submitName(){
+    if(document.getElementById('inp3').value!='' && document.getElementById('inp3').value!='Enter Company' && document.getElementById('inp3').value!='Name des Unternehmens eingeben' && document.getElementById('inp3').value!='Nom de votre entreprise'){
+        document.getElementById('b1').disabled = true;
+        slide();
+    } else {
+        console.log('please enter company name')
+    };
 }
 
 
@@ -182,4 +215,6 @@ function getRandomIntRange (min, max) {
 
 function isNum(val){
     return !isNaN(val)
-  }
+}
+
+}

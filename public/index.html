@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
   <head>
+
     <!-- <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js";
@@ -30,7 +31,7 @@
     <!-- CDNs -->
     <script src="https://pixijs.download/release/pixi.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
+    <script src="/socket.io/socket.io.js"></script>
     
 
 
@@ -38,22 +39,30 @@
     
     <!-- necessary init vars -->
     <script>
+    let lang = window.location.href.slice(-2);
+    let = isDesktop = true;
+    
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    isDesktop = false
+    }
+
+    
+
     let slideFuncs=[];
     let arriveTriggers=[];
     let leaveTriggers=[];
-    let numSlides = 20;
+    let numSlides = 24;
     let canSwipe = false;
 
     //user data vars
     let companyName;
-    let name;
+    let userName;
     let email;
     let region = 'Choose Region';
     let numComps;
     let percComps;
     let finalValue;
     
-
     //results vars
     let ghgSaved;
     let energySaved;
@@ -80,6 +89,11 @@
     <script src="slides/slide17.js"></script>
     <script src="slides/slide18.js"></script>
     <script src="slides/slide19.js"></script>
+    <script src="slides/slide20.js"></script>
+    <script src="slides/slide21.js"></script>
+    <script src="slides/slide22.js"></script>
+    <script src="slides/slide23.js"></script>
+
 
 
     <!-- add elems -->
@@ -100,6 +114,7 @@
     <script src="anims/globe.js"></script>
     <script src="anims/vine.js"></script>
     <script src="anims/text.js"></script>
+    <script src="anims/copy.js"></script>
     <script src="anims/shape.js"></script>
     <script src="anims/branch.js"></script>
     <script src="anims/sun.js"></script>
@@ -109,8 +124,20 @@
     <script src="anims/bulb.js"></script>
     <script src="anims/flower.js"></script>
     
+    
   </head>
   <body>
+
+    <!-- Desktop -->
+    <div id='desktop'style = 'position: absolute; width :100%; height:100%' hidden>
+      <div class = 'lp'>
+        <div><img src="images/chrome.png" style = 'width: 130px; height: 130px;'></div>
+        <div class = 'head'>This site is built for mobile devices</div>
+        <div class = 'green-text'>Scan the QR code below to begin</div>
+        <div><img id = 'qr' style = 'width: 20%; height: auto'></div>
+      </div>
+    </div>
+
     <!-- header -->
     <div style = 'position:absolute' id = 'prog' hidden>
       <!-- <h1 class = 'heading' style= 'float:right; margin-right: 40%'>Progress</h1> -->
@@ -132,38 +159,45 @@
     </div>
 
     <div id='landing'style = 'position: absolute; width :100%; height:100%' hidden>
-    <div class = 'lp'>
-      <div><img src="images/chrome.png" style = 'width: 180px; height: 180px;'></div>
-      <div class = 'head'>chrome OS</div>
-      <div class = 'head'>Sustainibility Calculator</div>
-      <div class = 'green-text'>Thanks for joining</div>
-      <div class = 'begin'><span>To begin enter your name <br> and company</span></div>
-      <div class = 'nameInp'></div>
-      <div class = 'lpInps'><input id = 'inp2' class = 'inputField' type="text" value="Enter Name" onclick="value=''"></input></div>
-      <div class = 'lpInps'><input id = 'inp3' class = 'inputField' type="text" value="Enter Company" onclick="value=''"></input></div>
-      <div><img src = 'images/greenbar.png' style = 'width: 60%; height: auto'></div>
-      <div class = 'foot'>This green bar will show your progress; the experience<br> should only take under 5 minutes to complete</div>
+      <div class = 'lp'>
+        <div><img src="images/chrome.png" style = 'width: 180px; height: 180px;'></div>
+        <div class = 'head'>chrome OS</div>
+        <div  id = 'sc' class = 'head'>Sustainability Calculator</div>
+        <div id = 'tf' class = 'green-text'>Thanks for joining</div>
+        <div id = 'tb' class = 'begin'><span>To begin enter your name <br> and company</span></div>
+        <div class = 'nameInp'></div>
+        <div class = 'lpInps'><input id = 'inp2' class = 'inputField' type="text" value="Enter Name" onclick="value=''"></input></div>
+        <div class = 'lpInps'><input id = 'inp3' class = 'inputField' type="text" value="Enter Company" onclick="value=''"></input></div>
+        <div><img src = 'images/greenbar.png' style = 'width: 60%; height: auto'></div>
+        <div id="foot" class = 'foot' style = "padding-bottom:35px">This green bar will show your progress; the experience<br> should only take under 5 minutes to complete</div>
+        <button id="b1" onclick="submitName();" class="buttonPerc" >Submit</button>
+      </div>
     </div>
-  </div>
-        <!-- Enter Number of Computers -->
-        <!-- <div id="input2" class = 'inputFieldP' hidden>
-          <div class = 'box'>
-          <input id = 'inp2' class = 'inputField'type="number" value="Enter Name" onclick="value=''"></input>
-          </div>
-        </div>
-                   
-        <div id="input3" class = 'inputFieldP' hidden>
-          <div class = 'box'>
-          <input id = 'inp3' name="numOnly" class = 'inputField' type='tel' type="number" value="Enter Email" onclick="value=''"></input>
-          <button onclick="submitComps();" class="buttonComp">Submit</button>
-          </div>
-        </div> -->
+
+    <!-- email -->
+    <div id='email'style = 'position: absolute; width :100%; height:100%' hidden>
+      <div class = 'two'>
+        <div><img src="images/chrome.png" style = 'width: 100px; height: 100px; margin-top: 140px;'></div>
+        <div class = 'head' style = 'font-size:50px'>chrome OS</div>
+        <div id = 'ss' class = 'head' style = 'font-size:50px; padding-top: 40px'>Sustainability Calculator</div>
+        <div id = 'jt' class = 'green-text' style = 'font-size: 40px; padding-top:140px'>That was just a taste of how Chrome OS can<br>help you with reducing your emissions and<br>energy usage based on estimates</div>
+        <div id = 'md' class = 'begin' style = 'font-size: 40px; padding-top:10px; padding-bottom:30px; font-style:regular'><span>To get a more detailed and accurate <br>understanding, please leave your details below<br>and we'll contact you to organise a consultation</span></div>
+        <div class = 'lpInps' style = "padding-bottom:35px"><input id = 'inpE' class = 'inputField' type="text" value="Enter Email" onclick="value=''" ></input></div>
+        <label class="lab">
+          <input id='rad' class="rad" type="radio" name="radio" >
+          <span id="tick">&#160; Tick to confirm</span>
+          <!-- <div style="display:flex; flex-direction:row; justify-content:space-between; width:60%"></div> -->
+        </label>
+        <button id="b5" onclick="submitEmail();" style = "margin-top:0px" class="buttonPerc" >Submit</button>
+        <div class = 'foot' style = "padding-top:50px"><a id="priv" href="priv.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a></div>
+      </div>
+    </div>
 
     <!-- region selector -->
     <section id = 'regCont' hidden>
       <div id="dropdown" class = 'regionSelector' >
         <span class="dropdown-el">
-          <input type="radio" value="default" id='Choose-Region' checked="checked"><label id='choose' for="Choose-Region">Choose Region</label>
+          <input type="radio" value="default" id='Choose-Country' checked="checked"><label id='choose' for="Choose-Country">Choose Country</label>
           <input type="radio" value="0.79" id ='Austria'><label for="Austria">Austria</label>
           <input type="radio" value="0.15313" id ='Belgium'><label for="Belgium">Belgium</label>
           <input type="radio" value="0.43737" id ='Bulgaria'><label for="Bulgaria">Bulgaria</label>
@@ -196,7 +230,7 @@
           <input type="radio"  value="0.48100" id ='Turkey' ><label for="Turkey">Turkey</label>
           <input type="radio"  value="0.21233" id ='United-Kingdom' ><label for="United-Kingdom">United Kingdom</label>
         </span>
-        <button onclick="submitRegion();" class="buttonReg">Submit</button>
+        <button id="b2" onclick="submitRegion();" class="buttonReg">Submit</button>
       </div>
 
       
@@ -207,7 +241,7 @@
         <div id="input" class = 'inputFieldP' hidden>
           <div class = 'box'>
           <input id = 'inp' name="numOnly" class = 'inputField' type='tel' type="number" oninput="return onlynum()" value="Enter Count" onclick="value=''"></input>
-          <button onclick="submitComps();" class="buttonComp">Submit</button>
+          <button id="b3" onclick="submitComps();" class="buttonComp">Submit</button>
           </div>
         </div>
 
@@ -229,7 +263,7 @@
           </div>
           
         </div>
-        <button onclick="submitPerc();" class="buttonPerc">Submit</button>
+        <button id="b4" onclick="submitPerc();" class="buttonPerc">Submit</button>
           </div>
       </div>
 
@@ -247,6 +281,7 @@
   <script src="libraries/swipe.js"></script>
   <script src="libraries/dropdown.js"></script>
   <script src="libraries/slider.js"></script>
+  <script src="anims/button.js"></script>
 
   <script>
     $(function() {
@@ -271,6 +306,69 @@
                 return true
             }
         }
+    }
+
+     document.getElementById("qr").src = 'images/'+lang+'.png'
+
+     switch(lang) {
+      case 'fr':
+        // landing page
+        document.getElementById('sc').innerText = 'Calculateur de durabilité';
+        document.getElementById('tf').innerText = 'Merci de vous joindre à nous';
+        document.getElementById('tb').innerText = 'Pour commencer, veuillez saisir votre nom et celui de votre entreprise';
+        document.getElementById('inp2').value = 'Votre nom';
+        document.getElementById('inp3').value = 'Nom de votre entreprise';
+        document.getElementById('foot').innerText = "Cette barre verte indique votre progression. L'expérience devrait prendre moins de 5 minutes";
+        document.getElementById('b1').innerText = "Soumettre";
+        document.getElementById('b2').innerText = "Soumettre";
+        document.getElementById('b3').innerText = "Soumettre";
+        document.getElementById('b4').innerText = "Soumettre";
+        document.getElementById('b5').innerText = "Soumettre";
+
+        //email page
+        document.getElementById('ss').innerText = 'Calculateur de durabilité';
+        document.getElementById('jt').innerText = 'Ceci n’était qu’un aperçu de la façon dont Chrome OS peut vous aider à réduire vos émissions et votre consommation énergétiques, fondé sur des estimations';
+        document.getElementById('jt').style.paddingLeft = '50px';
+        document.getElementById('jt').style.paddingRight = '50px';
+        document.getElementById('md').innerText = 'Pour obtenir une explication plus précise et détaillée, saisissez vos coordonnées ci-dessous et nous vous contacterons pour organiser une consultation';
+        document.getElementById('inpE').value = 'Votre adresse e-mail';
+        document.getElementById('tick').innerText = 'Cochez pour confirmer';
+        document.getElementById('priv').innerText = 'Politique de confidentialité';
+        document.getElementById('inp').value = 'Entrez le nombre';
+        break;
+      case 'de':
+        // landing page
+        document.getElementById('sc').innerText = 'Nachhaltigkeitsrechner';
+        document.getElementById('tf').innerText = 'Danke fürs Mitmachen';
+        document.getElementById('tb').innerText = 'Bitte geben Sie als Erstes Ihren Namen und den Namen Ihres Unternehmens ein.';
+        document.getElementById('inp2').value = 'Name eingeben';
+        document.getElementById('inp3').value = 'Name des Unternehmens eingeben';
+        document.getElementById('inp3').style.width = '90%';
+        document.getElementById('foot').innerText = "Diese grüne Leiste zeigt Ihren Fortschritt an. Die Aktivität sollte weniger als 5 Minuten dauern.";
+        document.getElementById('foot').style.padding = '90px';
+        document.getElementById('b1').innerText = "Absenden";
+        document.getElementById('b2').innerText = "Absenden";
+        document.getElementById('b3').innerText = "Absenden";
+        document.getElementById('b4').innerText = "Absenden";
+        document.getElementById('b5').innerText = "Absenden";
+
+        //email page
+        document.getElementById('ss').innerText = 'Nachhaltigkeitsrechner';
+        document.getElementById('jt').innerText = 'Das war nur ein auf Schätzungen basierendes Beispiel dafür, wie Sie mit Chrome OS Ihre Emissionen und Ihren Energieverbrauch reduzieren könnten.';
+        document.getElementById('jt').style.paddingLeft = '50px';
+        document.getElementById('jt').style.paddingRight = '50px';
+        document.getElementById('md').innerText = 'Wenn Sie mehr erfahren möchten, geben Sie einfach unten Ihre Kontaktinformationen ein, damit wir einen Beratungstermin mit Ihnen vereinbaren können.';
+        document.getElementById('inpE').value = 'E-Mail-Adresse eingeben';
+        document.getElementById('tick').innerText = 'Zum bestätigen ankreuzen';
+        document.getElementById('priv').innerText = 'Datenschutz-Bestimmungen';
+        document.getElementById('inp').value = 'Anzahl eingeben';
+        break;
+      case 'om':
+
+        break;
+      default:
+      document.getElementById("qr").src = 'images/om.png'
+        // code block
     }
 </script>
 </html>
