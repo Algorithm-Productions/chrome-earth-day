@@ -10,7 +10,7 @@ $('.dropdown-el').click(function(e) {
   regionLabel = $('#'+$(e.target).attr('for')).prop('checked',true).selector.slice(1);
   console.log(regionLabel);
   region = document.getElementById(regionLabel).value;
-  document.getElementById('choose2').innerText = regionLabel.replace('-', " ");
+  document.getElementById('choose1').innerText = regionLabel.replace('-', " ");
   updateText();
 });
 $(document).click(function() {

@@ -45,7 +45,7 @@ arriveTriggers[index] = function (){
     } else if (lang == 'fr') {
         text18.textObj.text = companyName +' pourrait économiser environ ' + finalValue + " tonnes d'émissions de gaz à effet de serre en adoptant Chrome OS*";
     } else {
-        text18.textObj.text = companyName +' can save approximately ' + finalValue + ' tons of greenhouse gas emissions by switching to Chrome OS*';
+        text18.textObj.text = companyName +' could save approximately ' + finalValue + ' tons of greenhouse gas emissions by switching to Chrome OS*';
     }
 
     copy18three.textObj.text = finalValue;

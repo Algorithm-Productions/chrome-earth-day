@@ -40,7 +40,7 @@ arriveTriggers[index] = function (){
         flowerB.animateIn(1500);
         shape8.animateIn(2000);
         bird7.animateIn(2500);
-        button8.animateIn(3000);
+        button8.animateIn(4000);
         copy8.animateIn(3000);
 
         //re-enable swiping after 3000 milliseconds
