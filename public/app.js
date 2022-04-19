@@ -16,9 +16,7 @@ let currSlide = 0;
 
 let width = window.innerWidth;
 let height = window.innerHeight;
-if(isDesktop){
-    $("#desktop").fadeIn(1000);
-} else {
+
 let text = ''
 const basicText = new PIXI.Text(text);
 basicText.x = 10;
@@ -47,6 +45,10 @@ app.loader
 
     function onAssetsLoaded() {
 
+        if(isDesktop){
+            $("#desktop").fadeIn(1000);
+        } else {
+
         function buildContainers(){
             for(var i = 0; i<numSlides; i++){
 
@@ -59,8 +61,10 @@ app.loader
                 slideFuncs[i](container);
             }
         }
+        
         buildContainers();
     }
+}
 
 
 function getRandomArbitrary(min, max) {
@@ -217,4 +221,3 @@ function isNum(val){
     return !isNaN(val)
 }
 
-}

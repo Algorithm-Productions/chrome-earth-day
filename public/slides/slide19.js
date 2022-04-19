@@ -17,11 +17,21 @@ slideFuncs[index] = function (container){
     sitting19 = new Sitting(container, -200, 150);
     sitting19.xScale = -0.3;
     flower19 = new Flower(container, 200, 150);
-    chrome19 = new Shape(container, 0, -300, "chrome", 0.1);
+    chrome19 = new Shape(container, 0, -300, "chrome", 0.08);
+
+    copy19oneText = "chrome OS";
+    copy19one = new Copy(container, 0, -180, copy19oneText, width, 'center', 'googleSans', '#5F6368', 50);
 
     button19 = new Button(container, 1.6);
 
-    copy19Text = "Sutton-Parker, J. (2022), 'Quantifying greenhouse gas abatement delivered by alternative computer operating system displacement strategies'. Pre-Print for Science Direct. Berlin, Germany: ResearchGate.";
+    if (lang == 'de') {
+        copy19Text = "*Sutton-Parker, J. (2022), „Quantifizierung der Treibhausgasminderung durch alternative Strategien zur Verdrängung von Computerbetriebssystemen“. Vordruck für Science Direct. Berlin, Deutschland: ResearchGate.";
+    } else if (lang == 'fr') {
+        copy19Text = "*Sutton-Parker, J. (2022), « Quantification de la réduction des gaz à effet de serre fournie par les stratégies alternatives de déplacement du système d'exploitation informatique ». Pré-impression pour Science Direct. Berlin, Allemagne : ResearchGate.";
+    } else {
+        copy19Text = "*Sutton-Parker, J. (2022), 'Quantifying greenhouse gas abatement delivered by alternative computer operating system displacement strategies'. Pre-Print for Science Direct. Berlin, Germany: ResearchGate.";
+    }
+    
     copy19 = new Copy(container, 0, height/3, copy19Text, 800, 'center', 'googleSans', '#80868B', 28);
 
     app.ticker.add((delta) => {
@@ -35,6 +45,7 @@ arriveTriggers[index] = function (){
     sitting19.animateIn(1000);
     flower19.animateIn(1000);
     chrome19.animateIn(1000);
+    copy19one.animateIn(1300);
 
     button19.animateIn(3000);
     copy19.animateIn(1000);
@@ -51,6 +62,7 @@ leaveTriggers[index] = function (){
     sitting19.animateOut(0);
     flower19.animateOut(0);
     chrome19.animateOut(0);
+    copy19one.animateOut(0);
     vine17.animateOut(1000);
     sun17.animateOut(0);
     shape17.animateOut(0);

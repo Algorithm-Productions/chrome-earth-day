@@ -1,16 +1,4 @@
-let regionLabel = 'Choose Country'
-switch (lang) {
-  case 'de':
-    regionLabel = 'Land auswählen';
-    $("#choose").text(regionLabel);
-    break;
-  case 'fr':
-    regionLabel = 'Choisissez un pays';
-    $("#choose").text(regionLabel);
-    break;
-  default:
-    break;
-}
+let regionLabel;
 
 $('.dropdown-el').click(function(e) {
   e.preventDefault();
@@ -18,10 +6,11 @@ $('.dropdown-el').click(function(e) {
   $(this).toggleClass('expanded');
   $('.regionSelector').toggleClass('expanded');
   $('#'+$(e.target).attr('for')).prop('checked',true);
-  // console.log($('#'+$(e.target).attr('for')).prop('checked',true).selector);
+
   regionLabel = $('#'+$(e.target).attr('for')).prop('checked',true).selector.slice(1);
+  console.log(regionLabel);
   region = document.getElementById(regionLabel).value;
-  $("#choose").text(regionLabel.replace('-', " "));
+  document.getElementById('choose2').innerText = regionLabel.replace('-', " ");
   updateText();
 });
 $(document).click(function() {

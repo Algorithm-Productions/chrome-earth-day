@@ -10,7 +10,16 @@ slideFuncs[index] = function (container){
     copy7oneText = "chrome OS";
     copy7one = new Copy(container, 0, 0, copy7oneText, width, 'center', 'googleSans', '#5F6368', 50);
 
-    copy7twoText = "Sustainability Calculator";
+
+    let copy7twoText;
+    if (lang == 'de') {
+        copy7twoText = "Nachhaltigkeitsrechner";
+    } else if (lang == 'fr') {
+        copy7twoText = "Calculateur de durabilité";
+    } else {
+        copy7twoText = "Sustainability Calculator";
+    }
+
     copy7two = new Copy(container, 0, 100, copy7twoText, width, 'center', 'googleSans', '#5F6368', 50);
 
     app.ticker.add((delta) => {

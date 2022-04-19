@@ -8,7 +8,7 @@ slideFuncs[index] = function (container){
     } else if (lang == 'fr') {
         textN13 = 'Laissez-nous vous poser deux questions rapides. Vous découvrirez ensuite une estimation des économies d’émissions de gaz à effet de serre que vous pourriez générer en utilisant Chrome OS*';
     } else {
-        textN13 = 'Let’s ask you a couple of quick questions. You can then find out your estimated savings in greenhouse gas emissions by using Chrome OS*';
+        textN13 = 'Let’s ask you a couple of quick questions. You can then find out your estimated savings in greenhouse gas emissions* by using Chrome OS*';
     }
 
     text13 = new Text(container, -200, -300, textN13, 1, 300, "right");
@@ -23,7 +23,7 @@ slideFuncs[index] = function (container){
     } else if (lang == 'fr') {
         copy13Text = '*Estimations basées sur des recherches indépendantes';
     } else {
-        copy13Text = '*Estimates based on  independent research.';
+        copy13Text = '*Estimates based on independent research.';
     }
 
     copy13 = new Copy(container, 0, height/3, copy13Text, width, 'center', 'googleSans', '#80868B', 36);

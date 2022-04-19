@@ -1,15 +1,26 @@
 function Button(parent, scale) {
     this.parent = parent;
+    this.clicked = false;
 
     this.container = new PIXI.Container();
     this.parent.addChild(this.container);
+
+    let call = function() {
+      if (!this.clicked) {
+        slide();
+      }
+      this.clicked = true;
+      console.log(this.clicked);
+    }
 
     this.container.x = width/2;
     this.container.y = height/2;
     this.container.scale.set(0);
     this.container.interactive = true;
     this.container.buttonMode = true;
-    this.container.on('pointerdown', slide);
+    this.container.on('pointerdown', call);
+
+    
 
     this.style = new PIXI.TextStyle({
       align: 'center',
@@ -36,6 +47,7 @@ function Button(parent, scale) {
     this.container.addChild(this.bg);
 
     if (lang == 'de') {
+      this.style.fontSize = 32;
       this.textObj = new PIXI.Text('Nächste', this.style);
     } else if (lang == 'fr') {
       this.style.fontSize = 32;

@@ -22,10 +22,9 @@ slideFuncs[index] = function (container){
         copy14twoText = "Firstly, what country are you in?";
     }
 
-    copy14oneText = "Let's start";
+
     copy14one = new Copy(container, 0, 350, copy14oneText, width, 'center', 'googleSansBold', '#34A853', 50);
 
-    copy14twoText = "Firstly, what country are you in?";
     copy14two = new Copy(container, 0, 420, copy14twoText, width, 'center', 'googleSans', '#3C4043', 50);
     
     app.ticker.add((delta) => {

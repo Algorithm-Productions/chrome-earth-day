@@ -13,8 +13,10 @@ arriveTriggers[index] = function (){
     
         //re-enable swiping after 3000 milliseconds
         setTimeout(function(){
-            $("#landing").fadeIn(1000);
-            // arriveTriggers[18]();
+
+            //$("#regCont"+lang).fadeIn(1000);
+            // $("#landing").fadeIn(1000);
+            arriveTriggers[22]();
             updateText(); 
         }, 500);
 }

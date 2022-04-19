@@ -5,13 +5,25 @@ index = 23;
 slideFuncs[index] = function (container){
     chrome23 = new Shape(container, 0, -500, "chrome", 0.05);
 
+    let copy23twoText;
+    let copy23threeText;
+    if (lang == 'de') {
+        copy23twoText = "Nachhaltigkeitsrechner";
+        copy23threeText = "Thanks for joining 😀";
+    } else if (lang == 'fr') {
+        copy23twoText = "Calculateur de durabilité";
+        copy23threeText = "Thanks for joining 😀";
+    } else {
+        copy23twoText = "Sustainability Calculator";
+        copy23threeText = "Thanks for joining 😀";
+    }
+
     copy23oneText = "chrome OS";
     copy23one = new Copy(container, 0, -400, copy23oneText, width, 'center', 'googleSans', '#5F6368', 50);
 
-    copy23twoText = "Sustainability Calculator";
+    
     copy23two = new Copy(container, 0, -300, copy23twoText, width, 'center', 'googleSansBold', '#5F6368', 58);
 
-    copy23threeText = "Thanks for joining 😀";
     copy23three = new Copy(container, 0, -200, copy23threeText, width, 'center', 'googleSansBold', '#34A853', 42);
 }
 

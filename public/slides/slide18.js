@@ -1,21 +1,21 @@
 index = 18;
 
 slideFuncs[index] = function (container){
-    let textN18 = '[Company name] can save approximately [X tons] of greenhouse gas emissions by switching to Chrome OS. ';;
+    let textN18 = '[Company name] could save approximately [X tons] of greenhouse gas emissions by switching to Chrome OS* ';;
     let copy18oneText;
     let copy18twoText;
     let copy18threeText;
 
     if (lang == 'de') {
-        copy18oneText = "*Source: Sutton-Parker, J. (2021), ‘ Quantifying greenhouse gas abatement delivered by alternative computer operating system displacement strategies.’ Amsterdam, the Netherlands: Science Direct, Elsevier B.V.";
+        copy18oneText = "*Sutton-Parker, J. (2021), „Quantifizierung der Treibhausgasminderung durch alternative Strategien zur Verdrängung von Computerbetriebssystemen.“ Amsterdam, Niederlande: Science Direct, Elsevier B.V.";
         copy18twoText = "Eingesparte THG";
         copy18threeText = "0";
     } else if (lang == 'fr') {
-        copy18oneText = "*Source: Sutton-Parker, J. (2021), ‘ Quantifying greenhouse gas abatement delivered by alternative computer operating system displacement strategies.’ Amsterdam, the Netherlands: Science Direct, Elsevier B.V.";
+        copy18oneText = "*Sutton-Parker, J. (2021), « Quantification de la réduction des gaz à effet de serre fournie par des stratégies alternatives de déplacement du système d'exploitation informatique. » Amsterdam, Pays-Bas : Science Direct, Elsevier B.V.";
         copy18twoText = "Émissions de GES économisées";
         copy18threeText = "0";
     } else {
-        copy18oneText = "*Source: Sutton-Parker, J. (2021), ‘ Quantifying greenhouse gas abatement delivered by alternative computer operating system displacement strategies.’ Amsterdam, the Netherlands: Science Direct, Elsevier B.V.";
+        copy18oneText = "*Sutton-Parker, J. (2021), ‘ Quantifying greenhouse gas abatement delivered by alternative computer operating system displacement strategies.’ Amsterdam, the Netherlands: Science Direct, Elsevier B.V.";
         copy18twoText = "GHG Saved";
         copy18threeText = "0";
     }
@@ -41,11 +41,11 @@ slideFuncs[index] = function (container){
 arriveTriggers[index] = function (){
 
     if (lang == 'de') {
-        text18.textObj.text = companyName +' könnte durch den Wechsel zu Chrome OS etwa ' + finalValue + ' Tonnen Treibhausgasemissionen sparen.*';
+        text18.textObj.text = companyName +' könnte durch den Wechsel zu Chrome OS etwa ' + finalValue + ' Tonnen Treibhausgasemissionen sparen*';
     } else if (lang == 'fr') {
         text18.textObj.text = companyName +' pourrait économiser environ ' + finalValue + " tonnes d'émissions de gaz à effet de serre en adoptant Chrome OS*";
     } else {
-        text18.textObj.text = companyName +' can save approximately ' + finalValue + ' tons of greenhouse gas emissions by switching to Chrome OS.*';
+        text18.textObj.text = companyName +' can save approximately ' + finalValue + ' tons of greenhouse gas emissions by switching to Chrome OS*';
     }
 
     copy18three.textObj.text = finalValue;

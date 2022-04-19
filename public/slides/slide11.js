@@ -8,7 +8,7 @@ slideFuncs[index] = function (container){
     } else if (lang == 'fr') {
          text = 'Découvrons comment';
     } else {
-         text = 'Lets find out how';
+         text = "Let's find out how'";
     }
 
     text1 = new Text(container, 0, -100, text, 1, 300, "right");

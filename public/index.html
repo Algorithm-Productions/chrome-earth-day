@@ -31,7 +31,7 @@
     <!-- CDNs -->
     <script src="https://pixijs.download/release/pixi.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
     
 
 
@@ -185,11 +185,11 @@
         <div class = 'lpInps' style = "padding-bottom:35px"><input id = 'inpE' class = 'inputField' type="text" value="Enter Email" onclick="value=''" ></input></div>
         <label class="lab">
           <input id='rad' class="rad" type="radio" name="radio" >
-          <span id="tick">&#160; Tick to confirm</span>
+          <span id="tick">&#160; Google may contact me via the</br> email address provided with product</br> and solution updates.</span>
           <!-- <div style="display:flex; flex-direction:row; justify-content:space-between; width:60%"></div> -->
         </label>
         <button id="b5" onclick="submitEmail();" style = "margin-top:0px" class="buttonPerc" >Submit</button>
-        <div class = 'foot' style = "padding-top:50px"><a id="priv" href="priv.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a></div>
+        <div class = 'foot' style = "padding-top:50px"><a id="priv" href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a></div>
       </div>
     </div>
 
@@ -197,7 +197,87 @@
     <section id = 'regCont' hidden>
       <div id="dropdown" class = 'regionSelector' >
         <span class="dropdown-el">
-          <input type="radio" value="default" id='Choose-Country' checked="checked"><label id='choose' for="Choose-Country">Choose Country</label>
+          <input type="radio" value="default" id='Choose-Country' checked="checked"><label id='choose1' for="Choose-Country">Choose Country</label>
+          <input type="radio" value="0.79" id ='Austria'><label for="Austria">Austria</label>
+          <input type="radio" value="0.15313" id ='Belgium'><label for="Belgium">Belgium</label>
+          <input type="radio" value="0.43737" id ='Bulgaria'><label for="Bulgaria">Bulgaria</label>
+          <input type="radio" value="0.27315" id ='Croatia'><label for="Croatia">Croatia</label>
+          <input type="radio"  value="0.54465" id ='Czech-Republic'><label for="Czech-Republic">Czech Republic</label>
+          <input type="radio"  value="0.15444" id ='Denmark'><label for="Denmark">Denmark</label>
+          <input type="radio"  value="0.72328" id ='Estonia'><label for="Estonia">Estonia</label>
+          <input type="radio"  value="0.13622" id ='Finland'><label for="Finland">Finland</label>
+          <input type="radio"  value="0.03895" id ='France'><label for="France">France</label>
+          <input type="radio"  value="0.37862" id ='Germany'><label for="Germany">Germany</label>
+          <input type="radio"  value="0.54901" id ='Greece'><label for="Greece">Greece</label>
+          <input type="radio"  value="0.25298" id ='Hungary'><label for="Hungary">Hungary</label>
+          <input type="radio"  value="0.00011" id ='Iceland'><label for="Iceland">Iceland</label>
+          <input type="radio"  value="0.34804" id ='Ireland' ><label for="Ireland">Ireland</label>
+          <input type="radio"  value="0.33854" id ='Italy' ><label for="Italy">Italy</label>
+          <input type="radio"  value="0.30333" id ='Latvia' ><label for="Latvia">Latvia</label>
+          <input type="radio"  value="0.14913" id ='Lithuania' ><label for="Lithuania">Lithuania</label>
+          <input type="radio"  value="0.13939" id ='Luxembourg' ><label for="Luxembourg">Luxembourg</label>
+          <input type="radio"  value="0.37060" id ='Malta' ><label for="Malta">Malta</label>
+          <input type="radio"  value="0.45207" id ='Netherlands' ><label for="Netherlands">Netherlands</label>
+          <input type="radio"  value="0.01118" id ='Norway' ><label for="Norway">Norway</label>
+          <input type="radio"  value="0.79107" id ='Poland' ><label for="Poland">Poland</label>
+          <input type="radio"  value="0.67729" id ='Cyprus' ><label for="Cyprus">Cyprus</label>
+          <input type="radio"  value="0.31011" id ='Romania' ><label for="Romania">Romania</label>
+          <input type="radio"  value="0.15110" id ='Slovakia' ><label for="Slovakia">Slovakia</label>
+          <input type="radio"  value="0.24385" id ='Slovenia' ><label for="Slovenia">Slovenia</label>
+          <input type="radio"  value="0.22026" id ='Spain' ><label for="Spain">Spain</label>
+          <input type="radio"  value="0.01189" id ='Sweden' ><label for="Sweden">Sweden</label>
+          <input type="radio"  value="0.01182" id ='Switzerland' ><label for="Switzerland">Switzerland</label>
+          <input type="radio"  value="0.48100" id ='Turkey' ><label for="Turkey">Turkey</label>
+          <input type="radio"  value="0.21233" id ='United-Kingdom' ><label for="United-Kingdom">United Kingdom</label>
+        </span>
+        <div style = 'display:flex; justify-content:center; align-items:center; margin-top:20px;'><button id="b2" onclick="submitRegion();" class="buttonPerc">Submit</button></div>
+      </div>
+    </section>
+<!-- 
+    <section id = 'regContfr' hidden>
+      <div id="dropdown" class = 'regionSelector' >
+        <span class="dropdown-el">
+          <input type="radio" value="default" id='Choisissez-un-pays' checked="checked"><label id='choose2' for="Choisissez-un-pays">Choisissez un pays</label>
+          <input type="radio" value="0.79" id ='Austria'><label for="Austria">Austria</label>
+          <input type="radio" value="0.15313" id ='Belgium'><label for="Belgium">Belgium</label>
+          <input type="radio" value="0.43737" id ='Bulgaria'><label for="Bulgaria">Bulgaria</label>
+          <input type="radio" value="0.27315" id ='Croatia'><label for="Croatia">Croatia</label>
+          <input type="radio"  value="0.54465" id ='Czech-Republic'><label for="Czech-Republic">Czech Republic</label>
+          <input type="radio"  value="0.15444" id ='Denmark'><label for="Denmark">Denmark</label>
+          <input type="radio"  value="0.72328" id ='Estonia'><label for="Estonia">Estonia</label>
+          <input type="radio"  value="0.13622" id ='Finland'><label for="Finland">Finland</label>
+          <input type="radio"  value="0.03895" id ='France'><label for="France">France</label>
+          <input type="radio"  value="0.37862" id ='Germany'><label for="Germany">Germany</label>
+          <input type="radio"  value="0.54901" id ='Greece'><label for="Greece">Greece</label>
+          <input type="radio"  value="0.25298" id ='Hungary'><label for="Hungary">Hungary</label>
+          <input type="radio"  value="0.00011" id ='Iceland'><label for="Iceland">Iceland</label>
+          <input type="radio"  value="0.34804" id ='Ireland' ><label for="Ireland">Ireland</label>
+          <input type="radio"  value="0.33854" id ='Italy' ><label for="Italy">Italy</label>
+          <input type="radio"  value="0.30333" id ='Latvia' ><label for="Latvia">Latvia</label>
+          <input type="radio"  value="0.14913" id ='Lithuania' ><label for="Lithuania">Lithuania</label>
+          <input type="radio"  value="0.13939" id ='Luxembourg' ><label for="Luxembourg">Luxembourg</label>
+          <input type="radio"  value="0.37060" id ='Malta' ><label for="Malta">Malta</label>
+          <input type="radio"  value="0.45207" id ='Netherlands' ><label for="Netherlands">Netherlands</label>
+          <input type="radio"  value="0.01118" id ='Norway' ><label for="Norway">Norway</label>
+          <input type="radio"  value="0.79107" id ='Poland' ><label for="Poland">Poland</label>
+          <input type="radio"  value="0.67729" id ='Cyprus' ><label for="Cyprus">Cyprus</label>
+          <input type="radio"  value="0.31011" id ='Romania' ><label for="Romania">Romania</label>
+          <input type="radio"  value="0.15110" id ='Slovakia' ><label for="Slovakia">Slovakia</label>
+          <input type="radio"  value="0.24385" id ='Slovenia' ><label for="Slovenia">Slovenia</label>
+          <input type="radio"  value="0.22026" id ='Spain' ><label for="Spain">Spain</label>
+          <input type="radio"  value="0.01189" id ='Sweden' ><label for="Sweden">Sweden</label>
+          <input type="radio"  value="0.01182" id ='Switzerland' ><label for="Switzerland">Switzerland</label>
+          <input type="radio"  value="0.48100" id ='Turkey' ><label for="Turkey">Turkey</label>
+          <input type="radio"  value="0.21233" id ='United-Kingdom' ><label for="United-Kingdom">United Kingdom</label>
+        </span>
+        <button id="b2" onclick="submitRegion();" class="buttonReg">French</button>
+      </div>
+    </section>
+
+    <section id = 'regContde' hidden>
+      <div id="dropdown" class = 'regionSelector' >
+        <span class="dropdown-el">
+          <input type="radio" value="default" id='Choose-Country' checked="checked"><label id='choose3' for="Choose-Country">Choose Country</label>
           <input type="radio" value="0.79" id ='Austria'><label for="Austria">Austria</label>
           <input type="radio" value="0.15313" id ='Belgium'><label for="Belgium">Belgium</label>
           <input type="radio" value="0.43737" id ='Bulgaria'><label for="Bulgaria">Bulgaria</label>
@@ -232,16 +312,14 @@
         </span>
         <button id="b2" onclick="submitRegion();" class="buttonReg">Submit</button>
       </div>
-
-      
-      
-    </section>
+    </section> -->
 
         <!-- Enter Number of Computers -->
         <div id="input" class = 'inputFieldP' hidden>
           <div class = 'box'>
           <input id = 'inp' name="numOnly" class = 'inputField' type='tel' type="number" oninput="return onlynum()" value="Enter Count" onclick="value=''"></input>
-          <button id="b3" onclick="submitComps();" class="buttonComp">Submit</button>
+          <div style = 'display:flex; justify-content:center; align-items:center; margin-top:20px;'><button id="b3" onclick="submitComps();" class="buttonPerc">Submit</button></div>
+          
           </div>
         </div>
 
@@ -308,7 +386,7 @@
         }
     }
 
-     document.getElementById("qr").src = 'images/'+lang+'.png'
+     document.getElementById("qr").src = 'images/spritesheet/'+lang+'.png'
 
      switch(lang) {
       case 'fr':
@@ -332,7 +410,7 @@
         document.getElementById('jt').style.paddingRight = '50px';
         document.getElementById('md').innerText = 'Pour obtenir une explication plus précise et détaillée, saisissez vos coordonnées ci-dessous et nous vous contacterons pour organiser une consultation';
         document.getElementById('inpE').value = 'Votre adresse e-mail';
-        document.getElementById('tick').innerText = 'Cochez pour confirmer';
+        document.getElementById('tick').innerText = 'Google peut me contacter via l’adresse\n e-mail fournie avec les mises à jour\n de produits et de solutions.';
         document.getElementById('priv').innerText = 'Politique de confidentialité';
         document.getElementById('inp').value = 'Entrez le nombre';
         break;
@@ -359,7 +437,7 @@
         document.getElementById('jt').style.paddingRight = '50px';
         document.getElementById('md').innerText = 'Wenn Sie mehr erfahren möchten, geben Sie einfach unten Ihre Kontaktinformationen ein, damit wir einen Beratungstermin mit Ihnen vereinbaren können.';
         document.getElementById('inpE').value = 'E-Mail-Adresse eingeben';
-        document.getElementById('tick').innerText = 'Zum bestätigen ankreuzen';
+        document.getElementById('tick').innerText = 'Google kann mich über die angegebene\n E-Mail-Adresse mit Produkt- und\n Lösungsaktualisierungen kontaktieren.';
         document.getElementById('priv').innerText = 'Datenschutz-Bestimmungen';
         document.getElementById('inp').value = 'Anzahl eingeben';
         break;
@@ -367,7 +445,7 @@
 
         break;
       default:
-      document.getElementById("qr").src = 'images/om.png'
+      document.getElementById("qr").src = 'images/spritesheet/om.png'
         // code block
     }
 </script>
