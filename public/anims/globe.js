@@ -1,4 +1,4 @@
-function Globe(slide, x, y, loop) {
+function Globe(slide, x, y, loop, bub) {
 
     this.slide = slide;
     this.container = new PIXI.Container();
@@ -61,12 +61,20 @@ function Globe(slide, x, y, loop) {
         this.graphics.drawCircle(0, 0, 290);
     }
 
-    this.container.addChild(this.graphics);
-    this.container.addChild(this.anim);
-    this.container.addChild(this.bubbles);
+    
+    if (bub) {
+        this.container.addChild(this.bubbles);
+    } else {
+        this.container.addChild(this.anim);
+        this.container.addChild(this.graphics);
+    }
+    
     
 
-    this.update = function(delta) {
+    
+
+    this.update = function(delta) {		
+        
     };
 
     this.animateIn = function(delay) {

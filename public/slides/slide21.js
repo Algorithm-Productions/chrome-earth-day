@@ -50,10 +50,10 @@ leaveTriggers[index] = function (){
     copy21two.animateOut(0);
     chrome21.animateOut(0);
 
-    bush20.animateOut(2000);
-    plant20L.animateOut(0);
-    plant20R.animateOut(0);
-    bird20.animateOut(1000);
+    // bush20.animateOut(2000);
+    // plant20L.animateOut(0);
+    // plant20R.animateOut(0);
+    // bird20.animateOut(1000);
 
     arrive(index+1);
 }

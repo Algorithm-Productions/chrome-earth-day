@@ -15,7 +15,7 @@ slideFuncs[index] = function (container){
         copy15twoText = 'Eine Schätzung reicht aus, wir verwenden eine typische Zusammensetzung aus Desktop- und mobilen Geräten als Basis für unsere Berechnung.';
     } else if (lang == 'fr') {
         copy15oneText = 'Combien d’appareils utilisateurs possède votre entreprise ?';
-        copy15twoText = "Une estimation suffit ; nous baserons nos calculs sur un pourcentage d'ordinateurs de bureau et portables typique";
+        copy15twoText = "Une estimation suffit; nous baserons nos calculs sur un pourcentage d'ordinateurs de bureau et portables typique";
     } else {
         copy15oneText = "How many end-user devices does your company have?";
         copy15twoText = "Estimates are fine; we'll base our calculations on a typical percentage of desktop and mobile devices.";

@@ -24,14 +24,7 @@ slideFuncs[index] = function (container){
 
     button19 = new Button(container, 1.6);
 
-    if (lang == 'de') {
-        copy19Text = "*Sutton-Parker, J. (2022), „Quantifizierung der Treibhausgasminderung durch alternative Strategien zur Verdrängung von Computerbetriebssystemen“. Vordruck für Science Direct. Berlin, Deutschland: ResearchGate.";
-    } else if (lang == 'fr') {
-        copy19Text = "*Sutton-Parker, J. (2022), « Quantification de la réduction des gaz à effet de serre fournie par les stratégies alternatives de déplacement du système d'exploitation informatique ». Pré-impression pour Science Direct. Berlin, Allemagne : ResearchGate.";
-    } else {
-        copy19Text = "*Sutton-Parker, J. (2022), 'Quantifying greenhouse gas abatement delivered by alternative computer operating system displacement strategies'. Pre-Print for Science Direct. Berlin, Germany: ResearchGate.";
-    }
-    
+    copy19Text = "*Sutton-Parker, J. (2022), 'Quantifying greenhouse gas abatement delivered by alternative computer operating system displacement strategies'. Pre-Print for Science Direct. Berlin, Germany: ResearchGate.";
     copy19 = new Copy(container, 0, height/3, copy19Text, 800, 'center', 'googleSans', '#80868B', 28);
 
     app.ticker.add((delta) => {

@@ -1,4 +1,4 @@
-function Copy(slide, x, y, text, width, align, font, color, size) {
+function Copy(slide, x, y, text, width, align, font, color, size, link) {
     this.slide = slide;
     this.text = text;
 
@@ -33,7 +33,13 @@ function Copy(slide, x, y, text, width, align, font, color, size) {
     this.textObj.alpha = 0;
     this.container.addChild(this.textObj);
 
+    if(link) {
+      // this.textObj.interactive = true;
+      // this.textObj.buttonMode = true;
+      // this.textObj.on('pointerdown', onClick);
+    }
 
+  
     
     
 

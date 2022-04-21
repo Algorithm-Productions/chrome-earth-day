@@ -51,7 +51,7 @@
     let slideFuncs=[];
     let arriveTriggers=[];
     let leaveTriggers=[];
-    let numSlides = 24;
+    let numSlides = 23;
     let canSwipe = false;
 
     //user data vars
@@ -143,7 +143,7 @@
       <!-- <h1 class = 'heading' style= 'float:right; margin-right: 40%'>Progress</h1> -->
       <div class = 'header' style = 'display:flex; align-items: center;'>
         <img class = 'logo' src='images/chrome.png'/>
-        <h1 class = 'heading'>chrome OS</h1>
+        <p class = 'heading'>chrome OS</p>
         
         
         <!-- progress bar -->
@@ -190,6 +190,14 @@
         </label>
         <button id="b5" onclick="submitEmail();" style = "margin-top:0px" class="buttonPerc" >Submit</button>
         <div class = 'foot' style = "padding-top:50px"><a id="priv" href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a></div>
+      </div>
+    </div>
+
+
+    <!-- last page -->
+    <div id='info'style = 'position: absolute; width :100%; height:100%' hidden>
+      <div class = 'two'>
+        <div id = 'md' class = 'begin' style = 'font-size: 40px; padding-top:80%; padding-bottom:80%; font-style:regular;'><span id="infoText">For more information, please visit</span> <a href="https://chromeenterprise.google/os/sustainability" target="_blank" rel="noopener noreferrer">chromeenterprise.google/os/sustainability</a></div>
       </div>
     </div>
 
@@ -413,6 +421,9 @@
         document.getElementById('tick').innerText = 'Google peut me contacter via l’adresse\n e-mail fournie avec les mises à jour\n de produits et de solutions.';
         document.getElementById('priv').innerText = 'Politique de confidentialité';
         document.getElementById('inp').value = 'Entrez le nombre';
+
+        document.getElementById('choose1').innerText = 'Choisissez un pays';
+        document.getElementById('infoText').innerText = 'Pour plus d’informations, s’il vous plaît visitez';
         break;
       case 'de':
         // landing page
@@ -440,6 +451,9 @@
         document.getElementById('tick').innerText = 'Google kann mich über die angegebene\n E-Mail-Adresse mit Produkt- und\n Lösungsaktualisierungen kontaktieren.';
         document.getElementById('priv').innerText = 'Datenschutz-Bestimmungen';
         document.getElementById('inp').value = 'Anzahl eingeben';
+
+        document.getElementById('choose1').innerText = 'Wähle ein Land';
+        document.getElementById('infoText').innerText = 'Für weitere Informationen, besuchen Sie bitte';
         break;
       case 'om':
 

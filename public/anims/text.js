@@ -50,6 +50,7 @@ function Text(slide, x, y, text, bg, width, align) {
       if (bg == 1) {
         this.textObj.anchor.set(0.5,0);
         this.textObj.y = 60;
+        // this.textObj.x = -50;
       } else if (bg == 2) {
         this.textObj.anchor.set(0.5);
         this.style.align = 'center';

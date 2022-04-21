@@ -3,8 +3,9 @@ index = 14;
 //how many computers 
 
 slideFuncs[index] = function (container){
-    globe14 = new Globe(container, 0, 0, false);
+    globe14 = new Globe(container, 0, 0, false, false);
     circle14 = new Circle(container, 0, 0, 260, 2);
+    globe142 = new Globe(container, 0, 0, false, true);
     container.sortableChildren = true;
 
 
@@ -25,7 +26,7 @@ slideFuncs[index] = function (container){
 
     copy14one = new Copy(container, 0, 350, copy14oneText, width, 'center', 'googleSansBold', '#34A853', 50);
 
-    copy14two = new Copy(container, 0, 420, copy14twoText, width, 'center', 'googleSans', '#3C4043', 50);
+    copy14two = new Copy(container, 0, 420, copy14twoText, width-200, 'center', 'googleSans', '#3C4043', 50);
     
     app.ticker.add((delta) => {
         circle14.update(delta);
@@ -34,10 +35,14 @@ slideFuncs[index] = function (container){
 
 arriveTriggers[index] = function (){
 
+    // circle14.arc.mask = globe14.bubbles;
+
     globe14.animateIn(1500);
+    globe142.animateIn(1500);
     circle14.animateIn(1500);
     copy14one.animateIn(1500);
     copy14two.animateIn(1800);
+
 
     
     setTimeout(function(){
@@ -51,6 +56,7 @@ arriveTriggers[index] = function (){
 leaveTriggers[index] = function (){
 
     globe14.animateOut(0);
+    globe142.animateOut(0);
     circle14.animateOut(0);
     copy14one.animateOut(0);
     copy14two.animateOut(0);

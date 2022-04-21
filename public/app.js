@@ -220,4 +220,3 @@ function getRandomIntRange (min, max) {
 function isNum(val){
     return !isNaN(val)
 }
-

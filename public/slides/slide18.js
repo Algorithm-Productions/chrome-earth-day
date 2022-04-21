@@ -6,16 +6,15 @@ slideFuncs[index] = function (container){
     let copy18twoText;
     let copy18threeText;
 
+
+    copy18oneText = "*Sutton-Parker, J. (2021), ‘ Quantifying greenhouse gas abatement delivered by alternative computer operating system displacement strategies.’ Amsterdam, the Netherlands: Science Direct, Elsevier B.V.";
     if (lang == 'de') {
-        copy18oneText = "*Sutton-Parker, J. (2021), „Quantifizierung der Treibhausgasminderung durch alternative Strategien zur Verdrängung von Computerbetriebssystemen.“ Amsterdam, Niederlande: Science Direct, Elsevier B.V.";
         copy18twoText = "Eingesparte THG";
         copy18threeText = "0";
     } else if (lang == 'fr') {
-        copy18oneText = "*Sutton-Parker, J. (2021), « Quantification de la réduction des gaz à effet de serre fournie par des stratégies alternatives de déplacement du système d'exploitation informatique. » Amsterdam, Pays-Bas : Science Direct, Elsevier B.V.";
         copy18twoText = "Émissions de GES économisées";
         copy18threeText = "0";
-    } else {
-        copy18oneText = "*Sutton-Parker, J. (2021), ‘ Quantifying greenhouse gas abatement delivered by alternative computer operating system displacement strategies.’ Amsterdam, the Netherlands: Science Direct, Elsevier B.V.";
+    } else {  
         copy18twoText = "GHG Saved";
         copy18threeText = "0";
     }
