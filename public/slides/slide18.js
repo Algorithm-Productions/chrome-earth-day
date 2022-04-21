@@ -7,7 +7,7 @@ slideFuncs[index] = function (container){
     let copy18threeText;
 
 
-    copy18oneText = "*Sutton-Parker, J. (2021), ‘ Quantifying greenhouse gas abatement delivered by alternative computer operating system displacement strategies.’ Amsterdam, the Netherlands: Science Direct, Elsevier B.V.";
+    copy18oneText = "*Sutton-Parker, J. (2020), ‘Determining end user computing device Scope 2 GHG emissions with accurate use phase energy consumption measurement’. 1877-0509. Amsterdam, the Netherlands: Science Direct, Elsevier B.V.";
     if (lang == 'de') {
         copy18twoText = "Eingesparte THG";
         copy18threeText = "0";
