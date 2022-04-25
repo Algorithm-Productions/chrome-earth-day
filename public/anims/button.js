@@ -48,7 +48,7 @@ function Button(parent, scale) {
 
     if (lang == 'de') {
       this.style.fontSize = 32;
-      this.textObj = new PIXI.Text('Nächste', this.style);
+      this.textObj = new PIXI.Text('Weiter', this.style);
     } else if (lang == 'fr') {
       this.style.fontSize = 32;
       this.textObj = new PIXI.Text('Suivant(e)', this.style);

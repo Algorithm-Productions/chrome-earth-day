@@ -92,7 +92,6 @@
     <script src="slides/slide20.js"></script>
     <script src="slides/slide21.js"></script>
     <script src="slides/slide22.js"></script>
-    <script src="slides/slide23.js"></script>
 
 
 
@@ -199,6 +198,13 @@
       <div class = 'two'>
         <div id = 'md' class = 'begin' style = 'font-size: 40px; padding-top:80%; padding-bottom:80%; font-style:regular;'><span id="infoText">For more information, please visit</span> <a href="https://chromeenterprise.google/os/sustainability" target="_blank" rel="noopener noreferrer">chromeenterprise.google/os/sustainability</a></div>
       </div>
+    </div>
+
+    <!-- cookie -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:700|Poppins:700" rel="stylesheet">
+    <div id="cookie-popup">
+      <p id="cookie-title">This site uses cookies to deliver its services.</p>
+      <button id="cookie-button">Ok, Got it</button>
     </div>
 
     <!-- region selector -->
@@ -424,12 +430,14 @@
 
         document.getElementById('choose1').innerText = 'Choisissez un pays';
         document.getElementById('infoText').innerText = 'Pour plus d’informations, s’il vous plaît visitez';
+        document.getElementById('cookie-title').innerText = 'Ce site utilise des cookies afin de vous proposer un meilleur contenu.';
+        document.getElementById('cookie-button').innerText = 'D’accord, j’ai compris.';
         break;
       case 'de':
         // landing page
         document.getElementById('sc').innerText = 'Nachhaltigkeitsrechner';
-        document.getElementById('tf').innerText = 'Danke fürs Mitmachen';
-        document.getElementById('tb').innerText = 'Bitte geben Sie als Erstes Ihren Namen und den Namen Ihres Unternehmens ein.';
+        document.getElementById('tf').innerText = '';
+        document.getElementById('tb').innerText = 'Bitte geben Sie folgende Informationen ein';
         document.getElementById('inp2').value = 'Name eingeben';
         document.getElementById('inp3').value = 'Name des Unternehmens eingeben';
         document.getElementById('inp3').style.width = '90%';
@@ -454,6 +462,8 @@
 
         document.getElementById('choose1').innerText = 'Wähle ein Land';
         document.getElementById('infoText').innerText = 'Für weitere Informationen, besuchen Sie bitte';
+        document.getElementById('cookie-title').innerText = 'Diese Webseite verwendet Cookies.';
+        document.getElementById('cookie-button').innerText = 'OK, Verstanden';
         break;
       case 'om':
 
@@ -462,5 +472,10 @@
       document.getElementById("qr").src = 'images/spritesheet/om.png'
         // code block
     }
+
+
+    $("#cookie-popup button").click(function() {
+      $("#cookie-popup").fadeOut(1000);
+    });
 </script>
 </html>

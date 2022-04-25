@@ -9,12 +9,12 @@ slideFuncs[index] = function (container){
     let copy23threeText;
     if (lang == 'de') {
         copy23twoText = "Nachhaltigkeitsrechner";
-        copy23threeText = "Danke fürs Beitreten 😀";
-        copy23fourText = "For more information, please visit https://chromeenterprise.google/os/sustainability";
+        copy23threeText = "Danke für Ihre Teilnahme 😀";
+        copy23fourText = "Für weitere Informationen, besuchen Sie bitte https://chromeenterprise.google/os/sustainability";
     } else if (lang == 'fr') {
         copy23twoText = "Calculateur de durabilité";
-        copy23threeText = "Merci d'avoir rejoint 😀";
-        copy23fourText = "For more information, please visit https://chromeenterprise.google/os/sustainability";
+        copy23threeText = "Merci de nous avoir rejoint 😀";
+        copy23fourText = "Pour en savoir plus, visitez notre page web https://chromeenterprise.google/os/sustainability";
     } else {
         copy23twoText = "Sustainability Calculator";
         copy23threeText = "Thanks for joining 😀";

@@ -8,7 +8,7 @@ slideFuncs[index] = function (container){
     if (lang == 'de') {
         textN19 = 'Und wenn Sie Ihre vorhandenen PCs und Macs mit Chrome OS Flex modernisieren, können Sie deren Energieeffizienz um bis zu 21 % steigern.*';
     } else if (lang == 'fr') {
-        textN19 = 'Et si vous modernisez vos PC et Mac existants avec Chrome OS Flex, vous pourrez les rendre jusqu’à 21 % plus écoénergétiques*';
+        textN19 = 'Et si vous modernisez vos ordinateurs Windows et Mac existants avec Chrome OS Flex, vous pourrez les rendre jusqu’à 21 % plus écoénergétiques*';
     } else {
         textN19 = 'And if you modernise your existing PCs and Macs with Chrome OS Flex, you can make them up to 21% more energy efficient.*';
     }
