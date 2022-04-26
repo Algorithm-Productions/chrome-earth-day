@@ -725,3 +725,7 @@ margin-left: -300px;
 	border: 4px solid #4285f4;
 	border-radius: 10px;
   }
+
+  #info-link {
+	word-wrap: break-word;
+  }

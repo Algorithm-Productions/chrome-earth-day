@@ -16,7 +16,7 @@ arriveTriggers[index] = function (){
 
             //$("#regCont"+lang).fadeIn(1000);
             $("#landing").fadeIn(1000);
-            // arriveTriggers[14]();
+            // arriveTriggers[22]();
             updateText(); 
         }, 500);
 }

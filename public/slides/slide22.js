@@ -11,14 +11,17 @@ slideFuncs[index] = function (container){
         copy23twoText = "Nachhaltigkeitsrechner";
         copy23threeText = "Danke für Ihre Teilnahme 😀";
         copy23fourText = "Für weitere Informationen, besuchen Sie bitte https://chromeenterprise.google/intl/de_de/os/sustainable-solutions/";
+        copy23four = new Copy(container, 0, -100, copy23fourText, width-200, 'center', 'googleSans', '#5F6368', 38, "https://chromeenterprise.google/intl/de_de/os/sustainable-solutions/");
     } else if (lang == 'fr') {
         copy23twoText = "Calculateur de durabilité";
         copy23threeText = "Merci de nous avoir rejoint 😀";
         copy23fourText = "Pour en savoir plus, visitez notre page web https://chromeenterprise.google/intl/fr_fr/os/sustainable-solutions/";
+        copy23four = new Copy(container, 0, -100, copy23fourText, width-200, 'center', 'googleSans', '#5F6368', 38, "https://chromeenterprise.google/intl/fr_fr/os/sustainable-solutions/");
     } else {
         copy23twoText = "Sustainability Calculator";
         copy23threeText = "Thanks for joining 😀";
         copy23fourText = "For more information, please visit https://chromeenterprise.google/intl/en_uk/os/sustainable-solutions/";
+        copy23four = new Copy(container, 0, -100, copy23fourText, width-200, 'center', 'googleSans', '#5F6368', 38, "https://chromeenterprise.google/intl/en_uk/os/sustainable-solutions/");
     }
 
     copy23oneText = "chrome OS";
@@ -29,7 +32,7 @@ slideFuncs[index] = function (container){
 
     copy23three = new Copy(container, 0, -200, copy23threeText, width, 'center', 'googleSansBold', '#34A853', 42);
 
-    copy23four = new Copy(container, 0, -100, copy23fourText, width-200, 'center', 'googleSans', '#5F6368', 38, "https://chromeenterprise.google/os/sustainability");
+    
 
     
 }
